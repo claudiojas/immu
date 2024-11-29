@@ -63,7 +63,11 @@ export default {
   },
   plugins: [
     tailwindcssAnimate,
-    function ({ addUtilities }) {
+    function ({
+      addUtilities,
+    }: {
+      addUtilities: (utilities: Record<string, Record<string, string>>) => void;
+    }) {
       addUtilities({
         ".text-balance": {
           "text-wrap": "balance",
