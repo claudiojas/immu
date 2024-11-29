@@ -1,3 +1,9 @@
+import { HomeBanner } from "@immu/components/index";
+
 export default function Home() {
-  return <div className="my-10">olá</div>;
+  return (
+    <div className="max-w-screen-xl mx-auto">
+      <HomeBanner />
+    </div>
+  );
 }

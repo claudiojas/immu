@@ -7,6 +7,8 @@ export default {
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
+    "./@/**/*.{js,ts,jsx,tsx,mdx}",
+    "./node_modules/@shadcn/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
     extend: {
@@ -59,5 +61,17 @@ export default {
       },
     },
   },
-  plugins: [tailwindcssAnimate],
+  plugins: [
+    tailwindcssAnimate,
+    function ({ addUtilities }) {
+      addUtilities({
+        ".text-balance": {
+          "text-wrap": "balance",
+        },
+        ".testing": {
+          border: "solid 2px red",
+        },
+      });
+    },
+  ],
 } satisfies Config;
