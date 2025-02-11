@@ -9,7 +9,7 @@ export default function About() {
       <div className="flex flex-col border-l-4 border-l-[#DB8CE8] mb-20">
         <div className="flex gap-[10%] mb-10">
           <div className="bg-gradient-to-r from-[#f4e9f5] to-white px-10 w-1/2 flex flex-col justify-center gap-[5%]">
-            <h1 className="text-[#DB8CE8] text-3xl font-bold">2021</h1>
+            <h1 className="text-[#cba0d1] text-3xl font-bold">2021</h1>
             <p>
               Os atendimentos ofertados no Instituto Manancial Mãos Unidas
               (IMMU) para as Assistidas quando iniciamos eram terapêuticos,
@@ -129,7 +129,7 @@ export default function About() {
 
         <div className="flex gap-[10%]">
           <div className="bg-gradient-to-r from-[#f4e9f5] to-white px-10 w-1/2 flex flex-col justify-center gap-[5%]">
-            <h1 className="text-[#DB8CE8] text-3xl font-bold">2021</h1>
+            <h1 className="text-[#DB8CE8] text-3xl font-bold">2024</h1>
             <p>
               Os atendimentos ofertados no Instituto Manancial Mãos Unidas
               (IMMU) para as Assistidas quando iniciamos eram terapêuticos,
