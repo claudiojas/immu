@@ -1,6 +1,14 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { Footer, Header } from "@immu/components/index";
+import { Murecho } from "next/font/google";
+
+// Configurar a fonte Murecho
+const murecho = Murecho({
+  subsets: ["latin"],
+  weight: ["300", "400", "700"], // Adicione os pesos desejados
+  variable: "--font-murecho",
+});
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -13,8 +21,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={`antialiased`}>
+    <html lang="en" className={murecho.variable}>
+      <body className="antialiased font-murecho">
         <Header />
         {children}
         <Footer />
@@ -22,3 +30,4 @@ export default function RootLayout({
     </html>
   );
 }
+

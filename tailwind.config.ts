@@ -12,6 +12,9 @@ export default {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        murecho: "var(--font-murecho), sans-serif",
+      },
       colors: {
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
