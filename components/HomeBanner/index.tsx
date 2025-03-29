@@ -74,8 +74,8 @@ export function HomeBanner () {
             />
 
             <span className="absolute top-[15.8rem] right-[5.1rem] flex flex-col gap-4 z-10">
-              <p className="whitespace-pre-line text-white font-bold font-murecho text-5xl text-right">{item.text}</p>
-              <p className="whitespace-pre-line text-white font-bold font-murecho text-base text-right">{item.subText}</p>
+              <p className="whitespace-pre-line text-white font-bold font-murecho text-6xl text-right">{item.text}</p>
+              <p className="whitespace-pre-line text-white font-bold font-murecho text-lg text-right">{item.subText}</p>
             </span>
           </div> 
         ))}
