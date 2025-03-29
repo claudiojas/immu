@@ -5,7 +5,7 @@ import Link from "next/link";
 
 export default function Header() {
   return (
-    <header className="bg-zinc-100">
+    <header>
       <div className="max-w-screen-xl mx-auto flex justify-between items-end p-5">
         <Image alt="" src={logoIMMU} width={100} />
         <nav>
