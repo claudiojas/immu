@@ -28,7 +28,7 @@ const carouselItems: ICarouselItemsProps[] = [
 ];
 
 
-export function HomeBanner () {
+export default function HomeBanner () {
   const [currentIndex, setCurrentIndex] = useState(0);
   const totalItems = carouselItems.length;
 

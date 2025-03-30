@@ -20,6 +20,8 @@ export default function HomeProducts() {
       try {
         const response = await fetch("/api/products");
 
+        console.log(response)
+
         if (!response.ok) {
           throw new Error("Falha ao carregar os produtos");
         }

@@ -20,6 +20,7 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+
   return (
     <html lang="en" className={murecho.variable}>
       <body className="antialiased font-murecho">
@@ -30,4 +31,3 @@ export default function RootLayout({
     </html>
   );
 }
-
