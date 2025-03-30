@@ -5,8 +5,8 @@ import { AbountProject } from "@immu/components/SectionAboutProject";
 export default function Home() {
   return (
     <>
-      <HomeBanner />  
       <main className="max-w-screen-xl mx-auto">
+        <HomeBanner />  
         <AbountProject />
         <HomeProducts />
         <Testimonials />
