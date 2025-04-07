@@ -57,6 +57,7 @@ export default {
           "5": "hsl(var(--chart-5))",
         },
         backgroundDark: "#2D2D2A",
+        backgroundCardTestimunial: "#F0F0F0",
         textDark: "#121212",
         textViolet: "#C120DC",
         orangeButton: "#EAAE68"

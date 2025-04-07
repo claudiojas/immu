@@ -1,32 +1,91 @@
-import * as React from "react";
+'use client';
 
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-} from "@immu/@/components/ui/carousel";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import CardTestimonials from "../CardTestimonials";
+import imageTestimonialExemple from "../../assets/testimonial/Luciene Foto.jpg";
 
 export default function Testimonials() {
+  
+  const dataTestimonial = [
+    {
+      imageTestimonial: imageTestimonialExemple,
+      testimonial:
+        `Tenho mais concentração, ali tem bate papo, tem pintura, 
+        aprendemos a pintar pano de prato e a fazer pulseiras. 
+        É muito bom estar no Instituto. Assista o vídeo de Luciene`,
+      infoTestimonial: "Assista o vídeo de Luciene",
+      name: "Luciene",
+      age: "30",
+      duration: "2 anos",
+    },
+    {
+      imageTestimonial: imageTestimonialExemple,
+      testimonial:
+        `Tenho mais concentração, ali tem bate papo, tem pintura, 
+        aprendemos a pintar pano de prato e a fazer pulseiras. 
+        É muito bom estar no Instituto. Assista o vídeo de Luciene`,
+      infoTestimonial: "Assista o vídeo de Luciene",
+      name: "Luciene",
+      age: "30",
+      duration: "2 anos",
+    },
+    {
+      imageTestimonial: imageTestimonialExemple,
+      testimonial:
+        `Tenho mais concentração, ali tem bate papo, tem pintura, 
+        aprendemos a pintar pano de prato e a fazer pulseiras. 
+        É muito bom estar no Instituto. Assista o vídeo de Luciene`,
+      infoTestimonial: "Assista o vídeo de Luciene",
+      name: "Luciene",
+      age: "30",
+      duration: "2 anos",
+    },
+    {
+      imageTestimonial: imageTestimonialExemple,
+      testimonial:
+        `Tenho mais concentração, ali tem bate papo, tem pintura, 
+        aprendemos a pintar pano de prato e a fazer pulseiras. 
+        É muito bom estar no Instituto. Assista o vídeo de Luciene`,
+      infoTestimonial: "Assista o vídeo de Luciene",
+      name: "Luciene",
+      age: "30",
+      duration: "2 anos",
+    },
+  ];
+
+  const settings = {
+    dots: false,
+    infinite: dataTestimonial.length > dataTestimonial.length ,
+    autoplay: true,
+    autoplaySpeed: 2000,
+    speed: 500,
+    slidesToShow: Math.min(3, dataTestimonial.length),
+    slidesToScroll: 1,
+    arrows: true,
+    centerMode: dataTestimonial.length > 3 , 
+    centerPadding: dataTestimonial.length > 3 ? "50px" : "0px",
+  };
+  
+  
+
   return (
-    <Carousel
-      opts={{
-        align: "start",
-      }}
-      className="w-full max-w-sm"
-    >
-      <CarouselContent>
-        {Array.from({ length: 5 }).map((_, index) => (
-          <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
-            <div className="p-1">
-              <span className="text-3xl font-semibold">{index + 1}</span>
-            </div>
-          </CarouselItem>
-        ))}
-      </CarouselContent>
-      <CarouselPrevious />
-      <CarouselNext />
-    </Carousel>
+    <div className="relative w-full bg-amber-700">
+        
+      <Slider {...settings} >
+      {dataTestimonial.map((testimonialData, index) => (
+        <CardTestimonials
+          imageTestimonial={testimonialData.imageTestimonial}  // ✅ Agora pega o item certo
+          testimonial={testimonialData.testimonial}
+          infoTestimonial={testimonialData.infoTestimonial}
+          name={testimonialData.name}
+          age={testimonialData.age}
+          duration={testimonialData.duration}
+          key={index}
+        />
+      ))}
+      </Slider>
+    </div>
   );
 }

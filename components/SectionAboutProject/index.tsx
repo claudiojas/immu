@@ -6,7 +6,7 @@ import Image from "next/image";
 export function AbountProject () {
     return(
         <>
-         <div className="w-full h-[885px] flex items-center justify-center"> 
+         <div className="w-full flex items-center justify-center"> 
           <section className="w-full h-[467px] flex items-center justify-center gap-[112px]">
               <div className="flex flex-col justify-center w-[460px] gap-[40px] h-full">
                 <h1 className="text-3xl font-bold">Conheça mais sobre o projeto</h1>
