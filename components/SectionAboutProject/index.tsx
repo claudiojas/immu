@@ -29,7 +29,7 @@ export function AbountProject () {
               </div>
 
               <div className="w-[577px] h-full flex items-center justify-center">
-                <Image src={mosaico} width="500" height="400" alt="fotos das pessoas da instituição em seu dia-a-dia" className="" />
+                <Image src={mosaico}  style={{ width: "100%", height: "auto" }} priority alt="fotos das pessoas da instituição em seu dia-a-dia" className="" />
               </div>
             </section>
         </div>
