@@ -13,7 +13,10 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        murecho: "var(--font-murecho), sans-serif",
+        murecho: ['var(--font-murecho)', 'sans-serif'],
+        inter: ['var(--font-inter)', 'sans-serif'],
+        ubuntu: ['var(--font-ubuntu)', 'sans-serif'],
+        verdana: ['Verdana', 'sans-serif'], 
       },
       colors: {
         background: "hsl(var(--background))",

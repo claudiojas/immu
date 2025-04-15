@@ -1,13 +1,23 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { Footer, Header } from "@immu/components/index";
-import { Murecho } from "next/font/google";
+import { Murecho, Inter, Ubuntu } from "next/font/google";
 
-// Configurar a fonte Murecho
 const murecho = Murecho({
   subsets: ["latin"],
-  weight: ["300", "400", "700"], // Adicione os pesos desejados
+  weight: ["300", "400", "700"],
   variable: "--font-murecho",
+});
+
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-inter",
+});
+
+const ubuntu = Ubuntu({
+  subsets: ["latin"],
+  weight: ["400", "700"],
+  variable: "--font-ubuntu",
 });
 
 export const metadata: Metadata = {
@@ -22,7 +32,7 @@ export default function RootLayout({
 }>) {
 
   return (
-    <html lang="en" className={murecho.variable}>
+    <html lang="en" className={`${murecho.variable} ${inter.variable} ${ubuntu.variable}`}>
       <body className="antialiased font-murecho">
         <Header />
         {children}
