@@ -20,7 +20,7 @@ export default function Header() {
               <Link href="/">Início</Link>
             </li>
             <li className="transition hover:text-zinc-500">
-              <Link href="/quem-somos">Quem somos</Link>
+              <Link href="/quem-somos">Saiba &#43;</Link>
             </li>
             <li className="transition hover:text-zinc-500">
               <Link href="/products">Nossos Produtos</Link>
