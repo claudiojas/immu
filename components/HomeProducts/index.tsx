@@ -7,6 +7,7 @@ import CardProducts from "../CardProducts";
 import { ProductI } from "@immu/types/product";
 import { useEffect, useState } from "react";
 import { YampiProduct } from "@immu/types/product.yampi";
+import { NextArrow, PrevArrow } from "../ArrowComponents";
 
 
 export default function HomeProducts() {
@@ -57,34 +58,50 @@ export default function HomeProducts() {
   if (error) return <div>{error}</div>;
 
   const settings = {
-    dots: true,
-    infinite: true,
-    slidesToShow: 3,
+    dots: false,
+    infinite: products.length > 3, // Só faz loop se houver mais de 3 produtos
+    slidesToShow: Math.min(products.length, 3), // Mostra até 3 ou menos se tiver menos produtos
     slidesToScroll: 1,
     autoplay: true,
-    autoplaySpeed: 2000,
+    autoplaySpeed: 3000,
     pauseOnHover: true,
-    arrows: false
+    arrows: true,
+    nextArrow: <NextArrow />,
+    prevArrow: <PrevArrow />,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: Math.min(products.length, 2),
+        }
+      },
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 1,
+        }
+      }
+    ]
   };
+  
 
 
   return (
-    <section className="pl-[80px] pt-[88px] pb-[181px] bg-gradient-to-b from-[#3D3D36] to-gray-300">
-      <h1 className="font-semibold text-[40px] mb-[96px] text-white">Conheça nossa loja</h1>
-
+    <section className="flex flex-col gap-24 py-32 px-12 bg-gradient-to-b from-[#3D3D36] to-gray-300">
+      <h1 className="font-semibold text-[40px] text-white">Conheça nossa loja</h1>
       <Slider {...settings}>
-        {products.map(product => (
-          <div key={product.id} className="w-full flex items-center justify-between">
-            <CardProducts
-              title={product.title}
-              imageSrc={product.imageSrc}
-              price={product.price}
-              amount={product.amount}
-              essence={product.essence}
-            />
-          </div>
-        ))}
-      </Slider>
+          {products.map(product => (
+            <div key={product.id} className="pl-36 h-full flex items-center justify-center">
+              <CardProducts
+                title={product.title}
+                imageSrc={product.imageSrc}
+                price={product.price}
+                amount={product.amount}
+                essence={product.essence}
+              />
+            </div>
+          ))}
+        </Slider>
     </section>
   );
 }

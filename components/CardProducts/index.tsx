@@ -18,9 +18,9 @@ export default function CardProducts({ title, imageSrc, price, amount, essence }
         <Image src={imageSrc} alt={title} className="w-full h-[344px] object-contain" width={400} height={400} priority/>
         <div className="flex flex-col gap-[14px]">
           <div className="px-[22px]">
-            <h3 className="text-[20px] font-bold text-black">{title}</h3>
+            <h3 className="text-[20px] font-bold text-black truncate max-w-[240px]">{title}</h3>
             <span className="flex gap-1 text-[20px]">
-              <h4 className="text-textViolet font-bold">{essence}</h4>
+              <h4 className="text-textViolet font-bold truncate max-w-[160px]">{essence}</h4>
               <p className="font-bold">-</p>
               <p className="font-medium">{amount}</p>
             </span>

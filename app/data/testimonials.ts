@@ -35,4 +35,14 @@ export const dataTestimonial = [
       age: "30",
       duration: "2 anos",
     },
+    {
+      imageTestimonial: MarianeFoto,
+      testimonial:
+        `Meu nome é Mariane , eu faço parte do instituto desde 2022 ,
+        desde então eu me sinto outra pessoa , o instituto nos oferece várias atividades como artesanato, arteterapia etc`,
+      infoTestimonial: "Assista o vídeo de Mariane",
+      name: "Mariane",
+      age: "30",
+      duration: "2 anos",
+    },
   ];
