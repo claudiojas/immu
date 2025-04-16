@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-import { photo2021, photo2022, photo2023 } from "@immu/assets";
+import { photo2021, photo2022, photo2023, photo2024 } from "@immu/assets";
 import { TimelineSection } from "@immu/components/TimelineSection";
 
 export default function About() {
@@ -97,14 +97,15 @@ export default function About() {
           />
           <div className="w-1/2">
             <Image
-              src={photo2021}
+              src={photo2024}
               width={700}
               height={700}
-              alt="Ester (fundadora do IMMU)."
+              alt="Fotos de mulheres assistidas pelo IMMU que participam do projeto social "
               className="w-full rounded-lg"
             />
             <p className="my-5">
-              <strong>Foto 1:</strong> {"Ester (fundadora do IMMU)."}
+              <strong>Foto 1:</strong> {"(direita para esquerda): Fotos de mulheres assistidas pelo IMMU que participam do projeto social Ler e Escrever. "}
+              <strong>Foto 2:</strong> {"Segundo convite da TV Capixaba para falar de mulheres no empreendedorismo."}
             </p>
           </div>
         </div>
