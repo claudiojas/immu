@@ -1,4 +1,7 @@
-export async function GET() {
+export async function GET(request: Request) {
+  const { searchParams } = new URL(request.url);
+  const includes = searchParams.get("include") || "";
+
   const userToken = process.env.USER_TOKEN ?? "";
   const userSecretKey = process.env.API_SECRET_KEY ?? "";
 
@@ -11,7 +14,7 @@ export async function GET() {
 
   try {
     const response = await fetch(
-      `${process.env.PUBLIC_API_URL}/catalog/products`,
+      `${process.env.PUBLIC_API_URL}/catalog/products${includes ? `?include=${includes}` : ""}`,
       {
         method: "GET",
         headers: {
@@ -29,6 +32,7 @@ export async function GET() {
     }
 
     const result = await response.json();
+    
     return new Response(JSON.stringify(result.data), { status: 200 });
   } catch (error) {
     console.error(error);

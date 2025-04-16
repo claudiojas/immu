@@ -12,6 +12,12 @@ export default {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        murecho: ['var(--font-murecho)', 'sans-serif'],
+        inter: ['var(--font-inter)', 'sans-serif'],
+        ubuntu: ['var(--font-ubuntu)', 'sans-serif'],
+        verdana: ['Verdana', 'sans-serif'], 
+      },
       colors: {
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
@@ -53,6 +59,11 @@ export default {
           "4": "hsl(var(--chart-4))",
           "5": "hsl(var(--chart-5))",
         },
+        backgroundDark: "#2D2D2A",
+        backgroundCardTestimunial: "#F0F0F0",
+        textDark: "#121212",
+        textViolet: "#C120DC",
+        orangeButton: "#EAAE68"
       },
       borderRadius: {
         lg: "var(--radius)",
