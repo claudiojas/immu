@@ -1,17 +1,14 @@
-// import { Testimonials } from "@immu/components/index";
-
 import HeroSection from "@immu/components/sections/HeroSection";
-import { carouselSlides, features, projectDescription } from "./data/homeData";
+import { carouselSlides, features, projectDescription, testimonials } from "./data/homeData";
 import AboutSection from "@immu/components/sections/AboutSection";
 import ProductsSection from "@immu/components/sections/ProductsSection";
+import TestimonialsSection from "@immu/components/sections/TestimonialsSection";
 
 
 export default function Home() {
   return (
     <>
       <div className="min-h-screen flex flex-col">
-        {/*
-        <Testimonials /> */}
 
         <main className="flex-1">
             {/* Hero Carousel */}
@@ -27,6 +24,9 @@ export default function Home() {
 
             {/* Products Section */}
             <ProductsSection />
+
+            {/* Testimonials Section */}
+            <TestimonialsSection testimonials={testimonials} />
             
         </main>
 

@@ -22,11 +22,15 @@ export const carouselSlides = [
   }
 ];
 
+import luciene from '../../assets/testimonial/Luciene Foto.jpg'
+import mLurdes from '../../assets/testimonial/Maria de Lurdes Foto.jpg'
+import mariane from '../../assets/testimonial/Mariane Foto.jpg'
+
 // Testimonials data
 export const testimonials = [
   {
     id: 1,
-    image: "https://images.unsplash.com/photo-1580489944761-15a19d654956?q=80&w=400",
+    image: luciene,
     name: "Luciene",
     age: "45 anos",
     text: "Tenho mais concentração, ali tem bate papo, tem pintura, aprendemos a pintar pano de prato e a fazer pulseiras. É muito bom estar no instituto.",
@@ -34,7 +38,7 @@ export const testimonials = [
   },
   {
     id: 2,
-    image: "https://images.unsplash.com/photo-1580489944761-15a19d654956?q=80&w=400",
+    image: mLurdes,
     name: "Luciene",
     age: "45 anos",
     text: "Tenho mais concentração, ali tem bate papo, tem pintura, aprendemos a pintar pano de prato e a fazer pulseiras. É muito bom estar no instituto.",
@@ -42,7 +46,7 @@ export const testimonials = [
   },
   {
     id: 3,
-    image: "https://images.unsplash.com/photo-1580489944761-15a19d654956?q=80&w=400",
+    image: mariane,
     name: "Luciene",
     age: "45 anos",
     text: "Tenho mais concentração, ali tem bate papo, tem pintura, aprendemos a pintar pano de prato e a fazer pulseiras. É muito bom estar no instituto.",
