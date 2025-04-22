@@ -23,6 +23,10 @@ const Products = () => {
     const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
     const [selectedPriceRange, setSelectedPriceRange] = useState<string | null>(null);
     const [searchTerm, setSearchTerm] = useState('');
+
+    // 🔹 Estado para paginação
+    const [currentPage, setCurrentPage] = useState(1);
+    const productsPerPage = 12; // Número de produtos por página
   
     // 🔹 Produtos duplicados para simular mais dados
     const expandedProducts = [...products, ...products].map((product, index) => ({
@@ -53,6 +57,24 @@ const Products = () => {
       setSelectedCategory(null);
       setSelectedPriceRange(null);
       setSearchTerm('');
+    };
+
+    // 🔹 Lógica para exibir os produtos da página atual
+    const indexOfLastProduct = currentPage * productsPerPage;
+    const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
+    const currentProducts = filteredProducts.slice(indexOfFirstProduct, indexOfLastProduct);
+
+    // 🔹 Funções de navegação de página
+    const nextPage = () => {
+        if (currentPage < Math.ceil(filteredProducts.length / productsPerPage)) {
+        setCurrentPage(currentPage + 1);
+        }
+    };
+
+    const prevPage = () => {
+        if (currentPage > 1) {
+          setCurrentPage(currentPage - 1);
+        }
     };
   
     return (
@@ -123,7 +145,7 @@ const Products = () => {
                   placeholder="Buscar produtos..." 
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
-                  className="pl-10 pr-4 py-2 border border-gray-300 rounded-md w-64 focus:outline-none focus:ring-2 focus:ring-manancial-pink focus:border-transparent"
+                  className="pl-10 pr-4 py-2 border border-gray-300 rounded-md w-64 focus:outline-none focus:ring-2 focus:ring-manancial-purple focus:border-transparent"
                 />
                 <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={18} />
               </div>
@@ -131,7 +153,7 @@ const Products = () => {
   
             {/* 🔹 Grid de produtos usando produtos filtrados */}
             <div id="products-grid" className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mb-10">
-              {filteredProducts.map((product) => (
+              {currentProducts.map((product) => (
                 <Card key={product.id} className="overflow-hidden hover:shadow-lg transition-shadow duration-300">
                   <div className="relative h-56 overflow-hidden group">
                     <Image 
@@ -174,6 +196,25 @@ const Products = () => {
             </div>
   
             {/* ... Paginação e rodapé mantidos ... */}
+            <div className="flex justify-center mt-8">
+                <Button
+                    onClick={prevPage}
+                    disabled={currentPage === 1}
+                    className="mr-4 text-manancial-purple bg-transparent hover:bg-transparent border-none"
+                >
+                Anterior
+                </Button>
+                <span className="self-center text-manancial-purple font-medium">
+                    Página {currentPage} de {Math.ceil(filteredProducts.length / productsPerPage)}
+                </span>
+                <Button
+                    onClick={nextPage}
+                    disabled={currentPage === Math.ceil(filteredProducts.length / productsPerPage)}
+                    className="mr-4 text-manancial-purple bg-transparent hover:bg-transparent border-none"
+                >
+                    Próxima
+                </Button>
+            </div>
           </div>
         </main>
       </div>
