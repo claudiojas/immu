@@ -60,7 +60,7 @@ export default function HomeProducts() {
   const settings = {
     dots: false,
     infinite: products.length > 3, // Só faz loop se houver mais de 3 produtos
-    slidesToShow: Math.min(products.length, 3), // Mostra até 3 ou menos se tiver menos produtos
+    slidesToShow: Math.max(1, Math.min(products.length, 3)),
     slidesToScroll: 1,
     autoplay: true,
     autoplaySpeed: 3000,
@@ -72,7 +72,7 @@ export default function HomeProducts() {
       {
         breakpoint: 1024,
         settings: {
-          slidesToShow: Math.min(products.length, 2),
+          slidesToShow: Math.max(1, Math.min(products.length, 2)),
         }
       },
       {
@@ -81,7 +81,7 @@ export default function HomeProducts() {
           slidesToShow: 1,
         }
       }
-    ]
+    ]    
   };
   
 
@@ -89,7 +89,8 @@ export default function HomeProducts() {
   return (
     <section className="flex flex-col gap-24 py-32 px-12 bg-gradient-to-b from-[#3D3D36] to-gray-300">
       <h1 className="font-semibold text-[40px] text-white">Conheça nossa loja</h1>
-      <Slider {...settings}>
+      {products.length > 0 && (
+        <Slider {...settings}>
           {products.map(product => (
             <div key={product.id} className="pl-36 h-full flex items-center justify-center">
               <CardProducts
@@ -102,6 +103,8 @@ export default function HomeProducts() {
             </div>
           ))}
         </Slider>
+      )}
+
     </section>
   );
 }

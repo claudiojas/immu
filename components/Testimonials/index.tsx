@@ -46,23 +46,21 @@ export default function Testimonials() {
       <div className="flex flex-col w-full h-auto gap-[96px] max-w-[1435px]">
 
         <h1 className="w-full font-semibold text-black text-3xl font-inter">Depoimentos de nossas mulheres</h1>
-        <Slider {...settings} >
-            {dataTestimonial.map((testimonialData, index) => (
-              <>
-                <div className="h-full flex items-center justify-center">
-                    <CardTestimonials
-                      imageTestimonial={testimonialData.imageTestimonial} 
-                      testimonial={testimonialData.testimonial}
-                      infoTestimonial={testimonialData.infoTestimonial}
-                      name={testimonialData.name}
-                      age={testimonialData.age}
-                      duration={testimonialData.duration}
-                      key={index}
-                    />
-                </div>
-              </>
-            ))}
-        </Slider>
+        <Slider {...settings}>
+          {dataTestimonial.map((testimonialData, index) => (
+            <div key={index} className="h-full flex items-center justify-center">
+              <CardTestimonials
+                imageTestimonial={testimonialData.imageTestimonial} 
+                testimonial={testimonialData.testimonial}
+                infoTestimonial={testimonialData.infoTestimonial}
+                name={testimonialData.name}
+                age={testimonialData.age}
+                duration={testimonialData.duration}
+              />
+            </div>
+          ))}
+      </Slider>
+
       </div>
     </div>
   );
