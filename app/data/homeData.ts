@@ -36,30 +36,83 @@ export const products = [
     image: productExemple,
     title: "Perfume de Ambiente Vanilla",
     description: "1 litro",
-    price: 69.90
+    price: 69.90,
+    category: "Casa"
   },
   {
     id: 2,
     image: productExemple,
-    title: "Perfume de Ambiente Vanilla",
+    title: "Perfume de Ambiente Lavanda",
     description: "1 litro",
-    price: 69.90
+    price: 69.90,
+    category: "Casa"
   },
   {
     id: 3,
     image: productExemple,
-    title: "Perfume de Ambiente Vanilla",
+    title: "Perfume de Ambiente Morango",
     description: "1 litro",
-    price: 69.90
+    price: 69.90,
+    category: "Beleza"
   },
   {
     id: 4,
     image: productExemple,
-    title: "Perfume de Ambiente Vanilla",
+    title: "Perfume de Ambiente Flor de Laranjeira",
     description: "1 litro",
-    price: 69.90
+    price: 69.90,
+    category: "Casa"
+  },
+  {
+    id: 5,
+    image: productExemple,
+    title: "Creme Hidratante de Mãos",
+    description: "300g",
+    price: 39.90,
+    category: "Beleza"
+  },
+  {
+    id: 6,
+    image: productExemple,
+    title: "Máscara Capilar de Aloe Vera",
+    description: "250g",
+    price: 49.90,
+    category: "Beleza"
+  },
+  {
+    id: 7,
+    image: productExemple,
+    title: "Detergente Antibacteriano",
+    description: "500ml",
+    price: 15.90,
+    category: "Casa"
+  },
+  {
+    id: 8,
+    image: productExemple,
+    title: "Desinfetante Lavanda",
+    description: "1 litro",
+    price: 18.90,
+    category: "Casa"
+  },
+  {
+    id: 9,
+    image: productExemple,
+    title: "Camiseta Feminina de Algodão",
+    description: "Tamanho M",
+    price: 49.90,
+    category: "Roupas"
+  },
+  {
+    id: 10,
+    image: productExemple,
+    title: "Camiseta Masculina de Algodão",
+    description: "Tamanho G",
+    price: 49.90,
+    category: "Roupas"
   }
 ];
+
 
 // Testimonials data
 export const testimonials = [
