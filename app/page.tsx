@@ -9,7 +9,6 @@ export default function Home() {
   return (
     <>
       <div className="min-h-screen flex flex-col">
-
         <main className="flex-1">
             {/* Hero Carousel */}
             <HeroSection slides={carouselSlides} />
@@ -29,9 +28,6 @@ export default function Home() {
             <TestimonialsSection testimonials={testimonials} />
             
         </main>
-
-
-        
       </div>
     </>
   );
