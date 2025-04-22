@@ -66,3 +66,11 @@
 .testimonial-gradient {
   background: linear-gradient(90deg, rgba(232, 76, 142, 0.1) 0%, rgba(155, 79, 150, 0.1) 100%);
 }
+
+.scrollbar-hide {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE 10+ */
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}

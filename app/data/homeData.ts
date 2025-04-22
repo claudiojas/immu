@@ -22,38 +22,6 @@ export const carouselSlides = [
   }
 ];
 
-// Products data
-export const products = [
-  {
-    id: 1,
-    image: "https://images.unsplash.com/photo-1595425970377-1445a4bab296?q=80&w=800",
-    title: "Perfume de Ambiente Vanilla",
-    description: "1 litro",
-    price: 69.90
-  },
-  {
-    id: 2,
-    image: "https://images.unsplash.com/photo-1595425970377-1445a4bab296?q=80&w=800",
-    title: "Perfume de Ambiente Vanilla",
-    description: "1 litro",
-    price: 69.90
-  },
-  {
-    id: 3,
-    image: "https://images.unsplash.com/photo-1595425970377-1445a4bab296?q=80&w=800",
-    title: "Perfume de Ambiente Vanilla",
-    description: "1 litro",
-    price: 69.90
-  },
-  {
-    id: 4,
-    image: "https://images.unsplash.com/photo-1595425970377-1445a4bab296?q=80&w=800",
-    title: "Perfume de Ambiente Vanilla",
-    description: "1 litro",
-    price: 69.90
-  }
-];
-
 // Testimonials data
 export const testimonials = [
   {
