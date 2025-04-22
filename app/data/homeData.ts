@@ -26,6 +26,41 @@ import luciene from '../../assets/testimonial/Luciene Foto.jpg'
 import mLurdes from '../../assets/testimonial/Maria de Lurdes Foto.jpg'
 import mariane from '../../assets/testimonial/Mariane Foto.jpg'
 
+
+import productExemple from '../../assets/products/product__exemple.svg'
+
+// Products data
+export const products = [
+  {
+    id: 1,
+    image: productExemple,
+    title: "Perfume de Ambiente Vanilla",
+    description: "1 litro",
+    price: 69.90
+  },
+  {
+    id: 2,
+    image: productExemple,
+    title: "Perfume de Ambiente Vanilla",
+    description: "1 litro",
+    price: 69.90
+  },
+  {
+    id: 3,
+    image: productExemple,
+    title: "Perfume de Ambiente Vanilla",
+    description: "1 litro",
+    price: 69.90
+  },
+  {
+    id: 4,
+    image: productExemple,
+    title: "Perfume de Ambiente Vanilla",
+    description: "1 litro",
+    price: 69.90
+  }
+];
+
 // Testimonials data
 export const testimonials = [
   {

@@ -2,10 +2,11 @@ import {
   facebook,
   gmail,
   instagram,
-  logoIMMU,
+  logoIMMUHeader,
   whatsapp
 } from "@immu/assets";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Footer() {
   return (
@@ -13,43 +14,43 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-6 py-12 grid grid-cols-1 md:grid-cols-3 gap-10">
         {/* Seção 1: Logo e descrição */}
         <div>
-          <Image alt="Logo IMMU" src={logoIMMU} width={180} className="mb-4" />
+          <Image alt="Logo IMMU" src={logoIMMUHeader} width={180} className="mb-4" />
           <p className="text-sm text-zinc-400 leading-relaxed">
             Somos uma iniciativa que apoia mulheres em situação de vulnerabilidade, oferecendo apoio, acolhimento e oportunidades para uma vida melhor.
           </p>
           <div className="flex gap-4 mt-4">
-            <a
+            <Link
               href="https://www.google.com"
               target="_blank"
               rel="noopener noreferrer"
               className="hover:opacity-60 transition"
             >
               <Image src={facebook} alt="Facebook" width={22} />
-            </a>
-            <a
+            </Link>
+            <Link
               href="https://www.google.com"
               target="_blank"
               rel="noopener noreferrer"
               className="hover:opacity-60 transition"
             >
               <Image src={instagram} alt="Instagram" width={22} />
-            </a>
-            <a
+            </Link>
+            <Link
               href="https://www.google.com"
               target="_blank"
               rel="noopener noreferrer"
               className="hover:opacity-60 transition"
             >
               <Image src={gmail} alt="Gmail" width={22} />
-            </a>
-            <a
+            </Link>
+            <Link
               href="https://www.google.com"
               target="_blank"
               rel="noopener noreferrer"
               className="hover:opacity-60 transition"
             >
               <Image src={whatsapp} alt="WhatsApp" width={22} />
-            </a>
+            </Link>
           </div>
         </div>
 

@@ -28,13 +28,13 @@ const Header = () => {
           <Link href="/" className="text-gray-700 hover:text-manancial-pink font-medium transition-colors">
             Início
           </Link>
-          <Link href="/loja" className="text-gray-700 hover:text-manancial-pink font-medium transition-colors">
+          <Link href="#" className="text-gray-700 hover:text-manancial-pink font-medium transition-colors">
             Loja
           </Link>
-          <Link href="/produtos" className="text-gray-700 hover:text-manancial-pink font-medium transition-colors">
+          <Link href="/products" className="text-gray-700 hover:text-manancial-pink font-medium transition-colors">
             Nossos Produtos
           </Link>
-          <Button className="bg-manancial-pink hover:bg-manancial-purple text-white">
+          <Button className="bg-manancial-purple hover:bg-manancial-pink text-white">
             Quero Doar
           </Button>
         </nav>
@@ -67,14 +67,14 @@ const Header = () => {
               Loja
             </Link>
             <Link 
-              href="/produtos" 
+              href="/products" 
               className="text-gray-700 hover:text-manancial-pink font-medium transition-colors"
               onClick={() => setMobileMenuOpen(false)}
             >
               Nossos Produtos
             </Link>
             <Button 
-              className="bg-manancial-pink hover:bg-manancial-purple text-white w-full"
+              className="bg-manancial-purple hover:bg-manancial-pink text-white w-full"
               onClick={() => setMobileMenuOpen(false)}
             >
               Quero Doar

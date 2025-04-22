@@ -1,4 +1,5 @@
 import logoIMMU from "@immu/assets/logo.png";
+import logoIMMUHeader from '@immu/assets/logo-immu-footer.png';
 import instagram from "@immu/assets/instagram.png";
 import facebook from "@immu/assets/facebook.png";
 import gmail from "@immu/assets/gmail.png";
@@ -16,6 +17,7 @@ import photo2024 from "@immu/assets/quem-somos/2024-foto.png";
 
 export {
   logoIMMU,
+  logoIMMUHeader,
   instagram,
   facebook,
   gmail,
