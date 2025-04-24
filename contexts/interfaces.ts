@@ -1,4 +1,5 @@
-export interface ProductI {
+export interface IProducts {
+  category: string;
   essence: string;
   amount: string;
   price: string;
@@ -22,6 +23,13 @@ interface ImageData {
     url: string;
   };
 }
+interface Category {
+  id: number;
+  name: string;
+  parent_id: number | null;
+  slug: string;
+  url_path: string;
+}
 
 export interface YampiProduct {
   id: number;
@@ -32,10 +40,13 @@ export interface YampiProduct {
   skus?: {
     data: Sku[];
   };
+  categories: {
+    data: Category[];
+  };
 }
 
 export interface ProductContextProps {
-  products: ProductI[];
+  products: IProducts[];
   error: string | null;
   loading: boolean;
 }

@@ -1,14 +1,12 @@
 "use client"
 import React, { useState } from 'react';
 import Image from 'next/image';
-import { products } from '../data/homeData';
 import { Button } from '@immu/@/components/ui/button';
 import { Card, CardContent } from '@immu/@/components/ui/card';
 import { NavigationMenu, NavigationMenuList, NavigationMenuItem, NavigationMenuTrigger, NavigationMenuContent, NavigationMenuLink } from '@immu/@/components/ui/navigation-menu';
 import { Search, ShoppingCart } from 'lucide-react';
+import { useProducts } from '@immu/contexts/ProductContext';
 
-// Extrair categorias únicas dos produtos
-const categories = Array.from(new Set(products.map((product) => product.category)));
 
 const priceRanges = [
   "Até R$ 50",
@@ -18,40 +16,40 @@ const priceRanges = [
 ];
 
 const Products = () => {
-
+  
     // Filtros adicionados
     const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
     const [selectedPriceRange, setSelectedPriceRange] = useState<string | null>(null);
     const [searchTerm, setSearchTerm] = useState('');
+    const { products, error, loading } = useProducts();
+    
+    // Extrair categorias únicas dos produtos
+    const categories = Array.from(new Set(products.map((product) => product.category)));
 
     // Estado para paginação
     const [currentPage, setCurrentPage] = useState(1);
     const productsPerPage = 12; // Número de produtos por página
-  
-    //  Produtos duplicados para simular mais dados
-    const expandedProducts = [...products, ...products].map((product, index) => ({
-      ...product,
-      id: index + 1
-    }));
-  
+    
+    const expandedProducts = products;
+
     // Função de filtro combinando busca, categoria e faixa de preço
     const filteredProducts = expandedProducts.filter(product => {
       const matchesSearch = product.title.toLowerCase().includes(searchTerm.toLowerCase());
-  
+
       const matchesCategory = selectedCategory
         ? product.category === selectedCategory
         : true;
-  
+
       const matchesPrice = selectedPriceRange
-        ? (selectedPriceRange === "Até R$ 50" && product.price <= 50) ||
-          (selectedPriceRange === "R$ 50 - R$ 100" && product.price > 50 && product.price <= 100) ||
-          (selectedPriceRange === "R$ 100 - R$ 200" && product.price > 100 && product.price <= 200) ||
-          (selectedPriceRange === "Acima de R$ 200" && product.price > 200)
+        ? (selectedPriceRange === "Até R$ 50" && parseFloat(product.price) <= 50) ||
+          (selectedPriceRange === "R$ 50 - R$ 100" && parseFloat(product.price) > 50 && parseFloat(product.price) <= 100) ||
+          (selectedPriceRange === "R$ 100 - R$ 200" && parseFloat(product.price) > 100 && parseFloat(product.price) <= 200) ||
+          (selectedPriceRange === "Acima de R$ 200" && parseFloat(product.price) > 200)
         : true;
-  
+
       return matchesSearch && matchesCategory && matchesPrice;
     });
-  
+
     // Função para limpar os filtros e mostrar todos os produtos
     const clearFilters = () => {
       setSelectedCategory(null);
@@ -76,6 +74,9 @@ const Products = () => {
           setCurrentPage(currentPage - 1);
         }
     };
+
+    if (loading) return <p className='flex items-center justify-center'>Carregando...</p>;
+    if (error) return <div>{error}</div>;
   
     return (
       <div className="min-h-screen flex flex-col">
@@ -157,9 +158,11 @@ const Products = () => {
                 <Card key={product.id} className="overflow-hidden hover:shadow-lg transition-shadow duration-300">
                   <div className="relative h-56 overflow-hidden group">
                     <Image 
-                      src={product.image}
+                      src={product.imageSrc}
                       alt={product.title} 
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300 ease-in-out"
+                      width={300}
+                      height={300}
                     />
                     <div className="absolute top-3 right-3">
                       <Button 
@@ -178,10 +181,10 @@ const Products = () => {
                       </span>
                     </div>
                     <h3 className="font-semibold text-lg mb-2 text-gray-800">{product.title}</h3>
-                    <p className="text-sm text-gray-600 mb-3 line-clamp-2">{product.description}</p>
+                    <p className="text-sm text-gray-600 mb-3 line-clamp-2">{product.category}</p>
                     <div className="flex justify-between items-center">
                       <span className="text-manancial-purple font-bold text-xl">
-                        R$ {product.price.toFixed(2)}
+                        R$ {parseFloat(product.price).toFixed(2)}
                       </span>
                       <Button 
                         variant="outline" 

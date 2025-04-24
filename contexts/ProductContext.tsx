@@ -1,25 +1,25 @@
 'use client';
 
 import { createContext, useContext, useEffect, useState, ReactNode } from 'react';
-import { ProductContextProps, ProductI, YampiProduct } from './interfaces';
+import { ProductContextProps, IProducts, YampiProduct } from './interfaces';
 
 
 const ProductContext = createContext<ProductContextProps | undefined>(undefined);
 
 export const ProductProvider = ({ children }: { children: ReactNode }) => {
-  const [products, setProducts] = useState<ProductI[]>([]);
+  const [products, setProducts] = useState<IProducts[]>([]);
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const response = await fetch("/api/products?include=skus,images");
+        const response = await fetch("/api/products?include=skus,images,categories");
         if (!response.ok) throw new Error("Falha ao carregar os produtos");
 
         const data: YampiProduct[] = await response.json();
 
-        const transformed: ProductI[] = data.map((item) => {
+        const products: IProducts[] = data.map((item) => {
           const variations = item.skus?.data?.[0]?.variations || [];
           const essence = variations.find((v) => v.name === "ESSÊNCIA")?.value || "";
           const amount = variations.find((v) => v.name === "MEDIDA")?.value || "";
@@ -30,11 +30,14 @@ export const ProductProvider = ({ children }: { children: ReactNode }) => {
             imageSrc: item.images?.data?.[0]?.thumb?.url || "",
             price: item.skus?.data?.[0]?.price_sale?.toFixed(2) || "0.00",
             amount,
-            essence
+            essence,
+            category: item.categories.data[0]?.name || "" 
           };
         });
 
-        setProducts(transformed);
+        setProducts(products);
+        console.log(products)
+
       } catch (err) {
         if (err instanceof Error) setError(err.message);
         else setError("Erro desconhecido");
