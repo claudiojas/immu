@@ -1,20 +1,22 @@
-
 "use client"
 import React, { useState, useEffect } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { StaticImageData } from 'next/image';
+import Headline from './Headline';
+import OverlayBunner from './OverlayBunner';
 
 type CarouselProps = {
   slides: {
     image: string | StaticImageData;
     title?: string;
     subtitle?: string;
+    id: string;
   }[];
   autoPlay?: boolean;
   interval?: number;
 };
 
-const Carousel = ({ slides, autoPlay = true, interval = 5000 }: CarouselProps) => {
+const Carousel = ({ slides, autoPlay = false, interval = 5000 }: CarouselProps) => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const goToPrevious = () => {
@@ -29,9 +31,9 @@ const Carousel = ({ slides, autoPlay = true, interval = 5000 }: CarouselProps) =
     setCurrentIndex(newIndex);
   };
 
-  const goToSlide = (slideIndex: number) => {
-    setCurrentIndex(slideIndex);
-  };
+  // const goToSlide = (slideIndex: number) => {
+  //   setCurrentIndex(slideIndex);
+  // };
 
   useEffect(() => {
     if (!autoPlay) return;
@@ -51,15 +53,34 @@ const Carousel = ({ slides, autoPlay = true, interval = 5000 }: CarouselProps) =
           backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.3)), url(${slides[currentIndex].image})`,
         }}
       >
-        {/* Content */}
-        <div className="absolute inset-0 flex flex-col justify-center items-center text-center text-white p-4">
-          {slides[currentIndex].title && (
-            <h1 className="text-3xl md:text-5xl font-bold mb-2 md:mb-4">{slides[currentIndex].title}</h1>
-          )}
-          {slides[currentIndex].subtitle && (
-            <p className="text-sm md:text-base max-w-xl">{slides[currentIndex].subtitle}</p>
-          )}
-        </div>
+        {/* Slider 01 */}
+        {slides[currentIndex].id === "01" && 
+        <div className='absolute inset-0 flex flex-col justify-center items-center md:items-end md:px-32 text-center md:text-right text-white p-4'>
+          <h1 className="text-3xl md:text-5xl font-bold mb-2 md:mb-4">{slides[currentIndex].title}</h1>
+          <p className="text-sm md:text-lg max-w-xl">{slides[currentIndex].subtitle}</p>
+        </div>}
+
+        {/* Slider 02 */}
+        {slides[currentIndex].id === "02" && 
+          <div className='flex flex-col items-end justify-center gap-7 md:gap-0 md:justify-between text-white h-full p-4 md:p-32 '>
+            <div className='md:bg-transparent bg-white bg-opacity-20 p-2 md:p-0'>
+              <Headline textColor='#b7b1d8' text='Conheça nossa linha de perfumes:'/>
+            </div>
+            <OverlayBunner bg='bg-[#78719B]'/>        
+          </div>}
+
+          {/* Slider 03 */}
+        {slides[currentIndex].id === "03" && 
+          <div className='flex flex-col items-end justify-center gap-7 md:gap-0 md:justify-between text-white h-full p-4 md:p-32 '>
+            <div className='w-full flex md:justify-start justify-end'>
+              <OverlayBunner bg='bg-[#E6C77C]'/>
+            </div>
+
+            <div className='md:bg-transparent bg-white bg-opacity-20 p-2 md:p-0'>
+              <Headline textColor='#78719B' text='Conheça nossa linha de perfumes para casa:'/>
+            </div>
+          </div>}
+
       </div>
 
       {/* Left/Right Arrows */}
@@ -71,7 +92,7 @@ const Carousel = ({ slides, autoPlay = true, interval = 5000 }: CarouselProps) =
       </div>
 
       {/* Indicator Dots */}
-      <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2">
+      {/* <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2">
         {slides.map((_, slideIndex) => (
           <div
             key={slideIndex}
@@ -81,7 +102,7 @@ const Carousel = ({ slides, autoPlay = true, interval = 5000 }: CarouselProps) =
             }`}
           />
         ))}
-      </div>
+      </div> */}
 
       {/* Wave Pattern Overlay */}
       <div className="wave-shape">

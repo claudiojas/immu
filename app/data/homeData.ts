@@ -6,16 +6,19 @@ import banner3 from "../../assets/home-banner/banner-3.svg";
 // Carousel slides data
 export const carouselSlides = [
   {
+    id: '01',
     image: banner1.src,
     title: "Instituto Manancial Mãos Unidas",
     subtitle: "Organização não governamental feita para apoiar mulheres e criar oportunidades para um futuro melhor e com dignidade."
   },
   {
+    id: '02',
     image: banner2.src,
     title: "Transformando vidas",
     subtitle: "Oferecemos arte-terapia, artesanato e atendimento em grupo para apoiar mulheres em situação de vulnerabilidade."
   },
   {
+    id: '03',
     image: banner3.src,
     title: "Nossos produtos",
     subtitle: "Conheça os produtos artesanais criados pelas mulheres do nosso instituto e ajude a transformar vidas."

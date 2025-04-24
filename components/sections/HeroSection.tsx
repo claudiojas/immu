@@ -5,6 +5,7 @@ import { StaticImageData } from 'next/image';
 
 type HeroSectionProps = {
   slides: {
+    id: string,
     image: string | StaticImageData;
     title?: string;
     subtitle?: string;

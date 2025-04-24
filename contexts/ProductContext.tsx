@@ -36,7 +36,6 @@ export const ProductProvider = ({ children }: { children: ReactNode }) => {
         });
 
         setProducts(products);
-        console.log(products)
 
       } catch (err) {
         if (err instanceof Error) setError(err.message);
