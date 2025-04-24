@@ -1,53 +1,17 @@
 "use client"
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import ProductCard from '../ProductCard';
-import { YampiProduct } from '@immu/types/product.yampi';
-import { ProductI } from '@immu/types/product';
+import { useProducts } from '@immu/contexts/ProductContext';
 
 const ProductsSection = () => {
-  const [products, setProducts] = useState<ProductI[]>([]);
-  const [error, setError] = useState<string | null>(null);
+  const { products, error, loading } = useProducts();
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const productsPerSlide = 4; // Para desktop
   const isMobile = typeof window !== "undefined" && window.innerWidth < 1024;
 
-  useEffect(() => {
-    const fetchProducts = async () => {
-      try {
-        const response = await fetch("/api/products?include=skus,images");
-        if (!response.ok) throw new Error("Falha ao carregar os produtos");
 
-        const data = await response.json();
-
-        const transformed = data.map((item: YampiProduct) => {
-          const variations = item.skus?.data?.[0]?.variations || [];
-          const essence = variations.find(v => v.name === "ESSÊNCIA")?.value || "";
-          const amount = variations.find(v => v.name === "MEDIDA")?.value || "";
-
-          return {
-            id: item.id,
-            title: item.name,
-            imageSrc: item.images?.data?.[0]?.thumb?.url || "",
-            price: item.skus?.data?.[0]?.price_sale?.toFixed(2) || "0.00",
-            amount,
-            essence
-          };
-        });
-
-        setProducts(transformed);
-      } catch (err: unknown) {
-        if (err instanceof Error) {
-          setError(err.message);
-        } else {
-          setError("Erro desconhecido");
-        }
-      }
-    };
-
-    fetchProducts();
-  }, []);
-
+  if (loading) return <p className='flex items-center justify-center'>Carregando...</p>;
   if (error) return <div>{error}</div>;
 
   // Para slides no desktop

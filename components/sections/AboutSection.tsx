@@ -22,7 +22,7 @@ const AboutSection = ({ title, text1, text2, features }: AboutSectionProps) => {
             <h2 className="text-3xl font-bold text-gray-800 mb-6">{title}</h2>
             <p className="text-gray-600 mb-4">{text1}</p>
             <p className="text-gray-600 mb-6">{text2}</p>
-            <Button className="bg-manancial-pink hover:bg-manancial-purple text-white">
+            <Button className="bg-manancial-purple hover:bg-manancial-pink text-white">
               Quero Doar
             </Button>
           </div>

@@ -7,7 +7,7 @@ import { Card, CardContent } from '@immu/@/components/ui/card';
 import { NavigationMenu, NavigationMenuList, NavigationMenuItem, NavigationMenuTrigger, NavigationMenuContent, NavigationMenuLink } from '@immu/@/components/ui/navigation-menu';
 import { Search, ShoppingCart } from 'lucide-react';
 
-// 🔹 Extrair categorias únicas dos produtos
+// Extrair categorias únicas dos produtos
 const categories = Array.from(new Set(products.map((product) => product.category)));
 
 const priceRanges = [
@@ -19,22 +19,22 @@ const priceRanges = [
 
 const Products = () => {
 
-    // 🔹 Filtros adicionados
+    // Filtros adicionados
     const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
     const [selectedPriceRange, setSelectedPriceRange] = useState<string | null>(null);
     const [searchTerm, setSearchTerm] = useState('');
 
-    // 🔹 Estado para paginação
+    // Estado para paginação
     const [currentPage, setCurrentPage] = useState(1);
     const productsPerPage = 12; // Número de produtos por página
   
-    // 🔹 Produtos duplicados para simular mais dados
+    //  Produtos duplicados para simular mais dados
     const expandedProducts = [...products, ...products].map((product, index) => ({
       ...product,
       id: index + 1
     }));
   
-    // 🔹 Função de filtro combinando busca, categoria e faixa de preço
+    // Função de filtro combinando busca, categoria e faixa de preço
     const filteredProducts = expandedProducts.filter(product => {
       const matchesSearch = product.title.toLowerCase().includes(searchTerm.toLowerCase());
   
@@ -52,19 +52,19 @@ const Products = () => {
       return matchesSearch && matchesCategory && matchesPrice;
     });
   
-    // 🔹 Função para limpar os filtros e mostrar todos os produtos
+    // Função para limpar os filtros e mostrar todos os produtos
     const clearFilters = () => {
       setSelectedCategory(null);
       setSelectedPriceRange(null);
       setSearchTerm('');
     };
 
-    // 🔹 Lógica para exibir os produtos da página atual
+    // Lógica para exibir os produtos da página atual
     const indexOfLastProduct = currentPage * productsPerPage;
     const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
     const currentProducts = filteredProducts.slice(indexOfFirstProduct, indexOfLastProduct);
 
-    // 🔹 Funções de navegação de página
+    // Funções de navegação de página
     const nextPage = () => {
         if (currentPage < Math.ceil(filteredProducts.length / productsPerPage)) {
         setCurrentPage(currentPage + 1);
@@ -83,9 +83,9 @@ const Products = () => {
           {/* ... banner mantido como está ... */}
   
           <div className="container mx-auto">
-            {/* 🔹 Adicionado controle de filtro no menu de navegação */}
+            {/* Adicionado controle de filtro no menu de navegação */}
             <div className="hidden md:flex justify-between items-center mb-6">
-              {/* 🔹 Botão para "Ver todos os produtos" */}
+              {/* Botão para "Ver todos os produtos" */}
               <Button
                 variant="outline"
                 onClick={clearFilters}
@@ -138,7 +138,7 @@ const Products = () => {
                 </NavigationMenuList>
               </NavigationMenu>
   
-              {/* 🔹 Campo de busca com estado controlado */}
+              {/* Campo de busca com estado controlado */}
               <div className="relative">
                 <input 
                   type="text" 
@@ -151,7 +151,7 @@ const Products = () => {
               </div>
             </div>
   
-            {/* 🔹 Grid de produtos usando produtos filtrados */}
+            {/* Grid de produtos usando produtos filtrados */}
             <div id="products-grid" className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mb-10">
               {currentProducts.map((product) => (
                 <Card key={product.id} className="overflow-hidden hover:shadow-lg transition-shadow duration-300">
