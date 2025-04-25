@@ -63,11 +63,11 @@ const Header = () => {
               Início
             </Link>
             <Link 
-              href="/loja" 
+              href="/aboutUs" 
               className="text-gray-700 hover:text-manancial-pink font-medium transition-colors"
               onClick={() => setMobileMenuOpen(false)}
             >
-              Loja
+              Saiba &#43;
             </Link>
             <Link 
               href="/products" 
