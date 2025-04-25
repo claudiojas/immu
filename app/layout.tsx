@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { Footer, Header } from "@immu/components/index";
 import { Murecho, Inter, Ubuntu } from "next/font/google";
+import { ProductProvider } from "@immu/contexts/ProductContext";
 
 const murecho = Murecho({
   subsets: ["latin"],
@@ -34,9 +35,11 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${murecho.variable} ${inter.variable} ${ubuntu.variable}`}>
       <body className="antialiased font-murecho">
-        <Header />
-        {children}
-        <Footer />
+        <ProductProvider>
+          <Header />
+            {children}
+          <Footer />
+        </ProductProvider>
       </body>
     </html>
   );

@@ -1,38 +1,92 @@
-'use client';
-import { Button } from "@immu/@/components/ui/button";
+"use client"
+import { Menu } from 'lucide-react';
+import { useState } from 'react';
 import Image from "next/image";
-import { logoIMMU } from "@immu/assets";
-import Link from "next/link";
+import Link from 'next/link';
+import { Button } from '@immu/@/components/ui/button';
+import logo from '../../assets/logo.png';
 import { usePathname } from 'next/navigation';
 
-
-export default function Header() {
-
+const Header = () => {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const pathname = usePathname();
-  
+
+
   return (
-    <header className={`${pathname !== '/' ? "bg-backgroundDark" : "bg-white"}`}>
-      <div className={`max-w-screen-xl mx-auto flex justify-between items-end p-5`}>
-        <Image alt="" src={logoIMMU} width={100} />
-        <nav className={`${pathname !== "/" ? "text-white" : "text-textDark"}`}>
-          <ul className="flex gap-10 items-center font-bold">
-            <li className="transition hover:text-zinc-500">
-              <Link href="/">Início</Link>
-            </li>
-            <li className="transition hover:text-zinc-500">
-              <Link href="/quem-somos">Saiba &#43;</Link>
-            </li>
-            <li className="transition hover:text-zinc-500">
-              <Link href="/products">Nossos Produtos</Link>
-            </li>
-            <li>
-              <Button className="bg-[#A457B0] px-4 py-2 text-white rounded-md transition hover:bg-[#4E1B57]">
-                Quero doar
-              </Button>
-            </li>
-          </ul>
+    <header className="bg-white sticky top-0 z-50 shadow-sm">
+      <div className="container mx-auto px-4 py-2 flex justify-between items-center ">
+        <div className="flex items-center">
+          <Link href="/" className="flex items-center">
+            <Image 
+              src={logo}
+              alt="Instituto Manancial Mãos Unidas" 
+              width={80}
+              className="object-contain"
+            />
+          </Link>
+        </div>
+
+        {/* Desktop Navigation */}
+        <nav className="hidden md:flex items-center space-x-6">
+          <Link href="/" className={pathname === '/' ? 'text-manancial-purple font-semibold ' : `text-gray-700 hover:text-manancial-purple font-semibold transition-colors`}>
+            Início
+          </Link>
+          <Link href="/aboutUs" className={pathname === '/aboutUs' ? 'text-manancial-purple font-semibold ' : "text-gray-700 hover:text-manancial-purple font-semibold transition-colors"}>
+            Saiba &#43;
+          </Link>
+          <Link href="/products" className={pathname === '/products' ? 'text-manancial-purple font-semibold '  : 'text-gray-700 hover:text-manancial-purple font-semibold transition-colors'}>
+            Nossos Produtos
+          </Link>
+          <Button className="bg-manancial-purple hover:bg-manancial-pink text-white">
+            Quero Doar
+          </Button>
         </nav>
+
+        {/* Mobile Menu Button */}
+        <Button 
+          className="md:hidden text-gray-700 bg-manancial-purple"
+          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+        >
+          <Menu />
+        </Button>
       </div>
+
+      {/* Mobile Navigation */}
+      {mobileMenuOpen && (
+        <div className="md:hidden bg-white py-4 px-4 shadow-md">
+          <nav className="flex flex-col space-y-4">
+            <Link 
+              href="/" 
+              className="text-gray-700 hover:text-manancial-pink font-medium transition-colors"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              Início
+            </Link>
+            <Link 
+              href="/loja" 
+              className="text-gray-700 hover:text-manancial-pink font-medium transition-colors"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              Loja
+            </Link>
+            <Link 
+              href="/products" 
+              className="text-gray-700 hover:text-manancial-pink font-medium transition-colors"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              Nossos Produtos
+            </Link>
+            <Button 
+              className="bg-manancial-purple hover:bg-manancial-pink text-white w-full"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              Quero Doar
+            </Button>
+          </nav>
+        </div>
+      )}
     </header>
   );
-}
+};
+
+export default Header;
