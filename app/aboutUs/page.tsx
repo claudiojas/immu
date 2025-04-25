@@ -3,7 +3,7 @@ import Image from "next/image";
 import { photo2021, photo2022, photo2023, photo2024 } from "@immu/assets";
 import { TimelineSection } from "@immu/components/TimelineSection";
 
-export default function About() {
+export default function AboutUs() {
   return (
     <main className="max-w-screen-xl mx-auto">
       <h1 className="text-3xl font-bold my-10">Quem Somos Nós</h1>

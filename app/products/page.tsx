@@ -15,7 +15,7 @@ const priceRanges = [
   "Acima de R$ 200"
 ];
 
-const Products = () => {
+export default function Products () {
   
     // Filtros adicionados
     const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
@@ -224,4 +224,3 @@ const Products = () => {
     );
   };
   
-export default Products;

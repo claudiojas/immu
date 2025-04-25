@@ -31,7 +31,7 @@ const Header = () => {
           <Link href="/" className={pathname === '/' ? 'text-manancial-purple font-semibold ' : `text-gray-700 hover:text-manancial-purple font-semibold transition-colors`}>
             Início
           </Link>
-          <Link href="#" className="text-gray-700 hover:text-manancial-purple font-semibold transition-colors">
+          <Link href="/aboutUs" className={pathname === '/aboutUs' ? 'text-manancial-purple font-semibold ' : "text-gray-700 hover:text-manancial-purple font-semibold transition-colors"}>
             Saiba &#43;
           </Link>
           <Link href="/products" className={pathname === '/products' ? 'text-manancial-purple font-semibold '  : 'text-gray-700 hover:text-manancial-purple font-semibold transition-colors'}>
