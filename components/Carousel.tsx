@@ -16,7 +16,7 @@ type CarouselProps = {
   interval?: number;
 };
 
-const Carousel = ({ slides, autoPlay = false, interval = 5000 }: CarouselProps) => {
+const Carousel = ({ slides, autoPlay = true, interval = 5000 }: CarouselProps) => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const goToPrevious = () => {
@@ -31,9 +31,9 @@ const Carousel = ({ slides, autoPlay = false, interval = 5000 }: CarouselProps) 
     setCurrentIndex(newIndex);
   };
 
-  // const goToSlide = (slideIndex: number) => {
-  //   setCurrentIndex(slideIndex);
-  // };
+  const goToSlide = (slideIndex: number) => {
+    setCurrentIndex(slideIndex);
+  };
 
   useEffect(() => {
     if (!autoPlay) return;
@@ -92,7 +92,7 @@ const Carousel = ({ slides, autoPlay = false, interval = 5000 }: CarouselProps) 
       </div>
 
       {/* Indicator Dots */}
-      {/* <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2">
+      <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2">
         {slides.map((_, slideIndex) => (
           <div
             key={slideIndex}
@@ -102,7 +102,7 @@ const Carousel = ({ slides, autoPlay = false, interval = 5000 }: CarouselProps) 
             }`}
           />
         ))}
-      </div> */}
+      </div>
 
       {/* Wave Pattern Overlay */}
       <div className="wave-shape">

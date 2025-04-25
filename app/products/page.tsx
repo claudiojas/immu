@@ -88,7 +88,7 @@ export default function Products() {
               <Button
                 onClick={() => document.getElementById('filters')?.classList.toggle('hidden')}
                 variant="outline"
-                className="text-manancial-purple border-manancial-purple hover:bg-manancial-purple hover:text-white"
+                className="text-manancial-purple border-manancial-purple hover:bg-manancial-purple hover:text-white md:hidden"
               >
                 Filtros
               </Button>
