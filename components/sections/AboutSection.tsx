@@ -19,9 +19,9 @@ const AboutSection = ({ title, text1, text2, features }: AboutSectionProps) => {
       <div className="container mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
           <div>
-            <h2 className="text-3xl font-bold text-gray-800 mb-6">{title}</h2>
-            <p className="text-gray-600 mb-4">{text1}</p>
-            <p className="text-gray-600 mb-6">{text2}</p>
+            <h2 className="text-4xl font-bold text-gray-800 mb-6">{title}</h2>
+            <p className="text-gray-600 mb-4 text-xl">{text1}</p>
+            <p className="text-gray-600 mb-6 text-xl">{text2}</p>
             <Button className="bg-manancial-purple hover:bg-manancial-pink text-white">
               Quero Doar
             </Button>

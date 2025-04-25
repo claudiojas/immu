@@ -5,9 +5,12 @@ import Image from "next/image";
 import Link from 'next/link';
 import { Button } from '@immu/@/components/ui/button';
 import logo from '../../assets/logo.png';
+import { usePathname } from 'next/navigation';
 
 const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const pathname = usePathname();
+
 
   return (
     <header className="bg-white sticky top-0 z-50 shadow-sm">
@@ -25,13 +28,13 @@ const Header = () => {
 
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center space-x-6">
-          <Link href="/" className="text-gray-700 hover:text-manancial-pink font-medium transition-colors">
+          <Link href="/" className={pathname === '/' ? 'text-manancial-purple font-semibold ' : `text-gray-700 hover:text-manancial-purple font-semibold transition-colors`}>
             Início
           </Link>
-          <Link href="#" className="text-gray-700 hover:text-manancial-pink font-medium transition-colors">
-            Loja
+          <Link href="#" className="text-gray-700 hover:text-manancial-purple font-semibold transition-colors">
+            Saiba &#43;
           </Link>
-          <Link href="/products" className="text-gray-700 hover:text-manancial-pink font-medium transition-colors">
+          <Link href="/products" className={pathname === '/products' ? 'text-manancial-purple font-semibold '  : 'text-gray-700 hover:text-manancial-purple font-semibold transition-colors'}>
             Nossos Produtos
           </Link>
           <Button className="bg-manancial-purple hover:bg-manancial-pink text-white">

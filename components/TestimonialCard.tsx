@@ -1,6 +1,6 @@
-
 import Image, { StaticImageData } from 'next/image';
 import React from 'react';
+import { FaQuoteLeft } from 'react-icons/fa';
 
 type TestimonialCardProps = {
   image: string | StaticImageData;
@@ -12,8 +12,9 @@ type TestimonialCardProps = {
 
 const TestimonialCard = ({ image, name, age, text, videoUrl }: TestimonialCardProps) => {
   return (
-    <div className="bg-white rounded-lg shadow-md p-6 flex flex-col items-center text-center h-96 justify-center">
-      <div className="w-24 h-24 rounded-full overflow-hidden mb-4 border-4 border-manancial-light">
+    <div className="bg-rose-50 rounded-2xl shadow-lg p-6 flex flex-col items-center text-center max-w-sm transition-transform hover:scale-[1.02] duration-300 border border-rose-100">
+      {/* Foto Redonda */}
+      <div className="w-28 h-28 rounded-full overflow-hidden mb-4 border-4 border-rose-200 shadow-inner">
         <Image
           src={image}
           alt={name}
@@ -22,14 +23,27 @@ const TestimonialCard = ({ image, name, age, text, videoUrl }: TestimonialCardPr
           height={300}
         />
       </div>
-      <h3 className="text-lg font-semibold text-gray-800 mb-1">{name}{age && `, ${age}`}</h3>
-      <p className="text-gray-600 italic mb-4 text-sm">{text}</p>
+
+      {/* Nome e idade */}
+      <h3 className="text-xl font-medium text-rose-900 mb-1">
+        {name}{age && <span className="text-rose-600 text-base">, {age}</span>}
+      </h3>
+
+      {/* Texto com ícone de citação */}
+      <div className="relative px-4">
+        <FaQuoteLeft className="absolute left-0 top-0 text-rose-300 text-sm" />
+        <p className="text-rose-700 italic text-sm leading-relaxed mt-4">
+          {text}
+        </p>
+      </div>
+
+      {/* Link para vídeo */}
       {videoUrl && (
-        <a 
-          href={videoUrl} 
-          target="_blank" 
+        <a
+          href={videoUrl}
+          target="_blank"
           rel="noopener noreferrer"
-          className="text-sm text-manancial-purple hover:text-manancial-pink underline transition-colors"
+          className="mt-5 inline-block bg-manancial-purple text-white text-sm font-medium px-5 py-2 rounded-full shadow-sm hover:bg-manancial-pink transition-colors"
         >
           Assista o vídeo de {name.split(' ')[0]}
         </a>
