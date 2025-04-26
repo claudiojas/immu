@@ -12,9 +12,9 @@ type TestimonialCardProps = {
 
 const TestimonialCard = ({ image, name, age, text, videoUrl }: TestimonialCardProps) => {
   return (
-    <div className="bg-rose-50 rounded-2xl shadow-lg p-6 flex flex-col items-center text-center max-w-sm transition-transform hover:scale-[1.02] duration-300 border border-rose-100">
+    <div className="bg-[#F0F0F0] h-96 rounded-2xl shadow-lg p-6 flex flex-col items-center text-center max-w-sm transition-transform hover:scale-[1.02] duration-300 border border-x-manancial-purple">
       {/* Foto Redonda */}
-      <div className="w-28 h-28 rounded-full overflow-hidden mb-4 border-4 border-rose-200 shadow-inner">
+      <div className="w-28 h-28 rounded-full overflow-hidden mb-4 border-2 border-manancial-pink shadow-inner">
         <Image
           src={image}
           alt={name}
@@ -25,14 +25,14 @@ const TestimonialCard = ({ image, name, age, text, videoUrl }: TestimonialCardPr
       </div>
 
       {/* Nome e idade */}
-      <h3 className="text-xl font-medium text-rose-900 mb-1">
-        {name}{age && <span className="text-rose-600 text-base">, {age}</span>}
+      <h3 className="text-xl font-medium text-gray-800 mb-1">
+        {name}{age && <span className="text-manancial-purple text-base">, {age}</span>}
       </h3>
 
       {/* Texto com ícone de citação */}
       <div className="relative px-4">
-        <FaQuoteLeft className="absolute left-0 top-0 text-rose-300 text-sm" />
-        <p className="text-rose-700 italic text-sm leading-relaxed mt-4">
+        <FaQuoteLeft className="absolute left-0 top-0 text-manancial-purple text-sm" />
+        <p className="text-gray-800 italic text-sm leading-relaxed mt-4">
           {text}
         </p>
       </div>

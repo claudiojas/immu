@@ -15,7 +15,14 @@ export default function CardProducts({ title, imageSrc, price, amount, essence }
         flex flex-col gap-[40px]
         bg-white rounded-lg shadow-lg overflow-hidden w-[320px] max-h-[603px] h-[603px] py-[18px] px-[30px]
       `}>
-        <Image src={imageSrc} alt={title} className="w-full h-[344px] object-contain" width={400} height={400} priority/>
+        <Image
+          src={imageSrc}
+          alt={title}
+          width={320}
+          height={344}
+          className="object-contain"
+          priority
+        />
         <div className="flex flex-col gap-[14px]">
           <div className="px-[22px]">
             <h3 className="text-[20px] font-bold text-black truncate max-w-[240px]">{title}</h3>
