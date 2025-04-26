@@ -22,7 +22,7 @@ const ProductsSection = () => {
   return (
     <section className="py-16 px-4 relative bg-manancial-light">
       <div className="container mx-auto">
-        <h2 className="text-4xl font-bold text-manancial-purple mb-10 mt-10 md:mt-0 text-left tracking-wide">
+        <h2 className="text-4xl font-bold text-[#53532F] mb-10 mt-10 md:mt-0 text-left tracking-wide">
           Conheça nossa loja
         </h2>
 

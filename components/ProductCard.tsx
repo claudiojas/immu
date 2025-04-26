@@ -24,12 +24,12 @@ const ProductCard = ({ image, title, description, price }: ProductCardProps) => 
       </div>
       <div className="p-5 flex flex-col flex-1 justify-between">
         <div>
-          <h3 className="text-xl font-semibold ">{title}</h3>
+          <h3 className="text-xl font-semibold text-[#53532F]">{title}</h3>
           <p className="text-sm text-gray-500 mt-2">{description}</p>
         </div>
         <div className="mt-5 flex justify-between items-center">
-          <span className="font-bold text-xl">R$ {price}</span>
-          <Button variant="outline" className=" border-pink-300 hover:bg-pink-500 hover:text-white hover:border-pink-500 transition-colors">
+          <span className="font-bold text-xl text-[#53532F]">R$ {price}</span>
+          <Button variant="outline" className=" border-[#53532F] text-[#53532F] hover:bg-manancial-purple hover:text-white hover:border-manancial-purple transition-colors">
             Ver Produto
           </Button>
         </div>
