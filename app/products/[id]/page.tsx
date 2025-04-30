@@ -47,17 +47,7 @@ export default function ProductDetailPage() {
     <main className="container mx-auto px-4 py-10">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         {/* Imagens */}
-        <div className="flex flex-col gap-4">
-          {/* Imagem principal */}
-          <div className="relative w-full h-[400px] bg-gray-100 rounded-lg overflow-hidden">
-            <Image
-              src={selectedImage || product.imageSrc}
-              alt={product.title}
-              fill
-              className="object-contain"
-              sizes="(max-width: 768px) 100vw, 50vw"
-            />
-          </div>
+        <div className="flex flex-col-reverse md:flex-row gap-4">
 
           {/* Miniaturas */}
           <div className="flex gap-2">
@@ -79,6 +69,18 @@ export default function ProductDetailPage() {
               </button>
             ))}
           </div>
+
+          {/* Imagem principal */}
+          <div className="relative w-full h-[400px] bg-gray-100 rounded-lg overflow-hidden">
+            <Image
+              src={selectedImage || product.imageSrc}
+              alt={product.title}
+              fill
+              className="object-contain"
+              sizes="(max-width: 768px) 100vw, 50vw"
+            />
+          </div>
+
         </div>
 
         {/* Informações do Produto */}
@@ -137,7 +139,7 @@ export default function ProductDetailPage() {
                 className="w-full sm:w-auto text-manancial-purple border-manancial-purple hover:bg-manancial-purple hover:text-white"
                 onClick={handleBack}
               >
-                Voltar
+                Página de produtos
               </Button>
             </div>
           </CardContent>

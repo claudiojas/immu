@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import ProductCard from '../ProductCard';
 import { useProducts } from '@immu/contexts/ProductContext';
+import Link from 'next/link';
 
 const ProductsSection = () => {
   const { products, error, loading } = useProducts();
@@ -28,13 +29,16 @@ const ProductsSection = () => {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 transition-all duration-500 ease-in-out">
           {visibleProducts.map(product => (
-            <ProductCard
-              key={product.id}
-              image={product.imageSrc}
-              title={product.title}
-              description={product.essence}
-              price={product.price}
-            />
+            <Link  key={product.id} href={`/products/${product.id}`}>
+
+              <ProductCard
+                image={product.imageSrc}
+                title={product.title} 
+                description={product.essence}
+                price={product.price}
+              />
+
+            </Link>
           ))}
         </div>
 
