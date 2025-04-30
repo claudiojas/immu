@@ -16,7 +16,7 @@ type CarouselProps = {
   interval?: number;
 };
 
-const Carousel = ({ slides, autoPlay = false, interval = 5000 }: CarouselProps) => {
+const Carousel = ({ slides, autoPlay = true, interval = 5000 }: CarouselProps) => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const goToPrevious = () => {
