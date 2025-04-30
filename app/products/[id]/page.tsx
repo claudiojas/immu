@@ -139,7 +139,7 @@ export default function ProductDetailPage() {
                 className="w-full sm:w-auto text-manancial-purple border-manancial-purple hover:bg-manancial-purple hover:text-white"
                 onClick={handleBack}
               >
-                Página de produtos
+                Produtos
               </Button>
             </div>
           </CardContent>
