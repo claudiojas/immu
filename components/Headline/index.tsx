@@ -1,12 +1,13 @@
 interface IHeadlineBunnerProps {
-    text: string;
+    contentText: string;
     textColor: string;
+    textColorSec: string;
 }
 
-export default function Headline ({ text, textColor }:IHeadlineBunnerProps) {
+export default function Headline ({ contentText, textColor, textColorSec }:IHeadlineBunnerProps) {
     return(
         <div className='text-right'>
-            <p className='text-[#53532F] text-2xl md:text-5xl'>{text}</p>
+            <p className={`${textColorSec} text-2xl md:text-5xl`}>{contentText}</p>
             <h1 className={`text-[${textColor}] text-4xl md:text-7xl font-medium`}>Aromas da Ester</h1>
         </div>
     )

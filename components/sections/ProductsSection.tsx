@@ -55,7 +55,7 @@ const ProductsSection = () => {
       </div>
 
       {/* Purple Wave Pattern */}
-      <div
+      {/* <div
         className="absolute md:-top-1 -top-16 left-0 w-full overflow-hidden rotate-180"
         style={{ height: "100px" }}
       >
@@ -65,7 +65,7 @@ const ProductsSection = () => {
             fill="#ffffff"
           ></path>
         </svg>
-      </div>
+      </div> */}
     </section>
   );
 };

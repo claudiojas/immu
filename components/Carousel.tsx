@@ -16,7 +16,7 @@ type CarouselProps = {
   interval?: number;
 };
 
-const Carousel = ({ slides, autoPlay = true, interval = 5000 }: CarouselProps) => {
+const Carousel = ({ slides, autoPlay = false, interval = 5000 }: CarouselProps) => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const goToPrevious = () => {
@@ -57,14 +57,14 @@ const Carousel = ({ slides, autoPlay = true, interval = 5000 }: CarouselProps) =
         {slides[currentIndex].id === "01" && 
         <div className='absolute inset-0 flex flex-col justify-center items-center md:items-end md:px-32 text-center md:text-right text-white p-4'>
           <h1 className="text-3xl md:text-5xl font-bold mb-2 md:mb-4">{slides[currentIndex].title}</h1>
-          <p className="text-sm md:text-lg max-w-xl">{slides[currentIndex].subtitle}</p>
+          <p className="text-sm md:text-xl max-w-xl">{slides[currentIndex].subtitle}</p>
         </div>}
 
         {/* Slider 02 */}
         {slides[currentIndex].id === "02" && 
           <div className='flex flex-col items-end justify-center gap-7 md:gap-0 md:justify-between text-white h-full p-4 md:p-32 '>
             <div className='md:bg-transparent bg-white bg-opacity-20 p-2 md:p-0'>
-              <Headline textColor='#b7b1d8' text='Conheça nossa linha de perfumes:'/>
+              <Headline textColor='#b7b1d8' contentText='Conheça nossa linha de perfumes:' textColorSec="text-[#FFDCB3]" />
             </div>
             <OverlayBunner bg='bg-[#78719B]'/>        
           </div>}
@@ -72,12 +72,12 @@ const Carousel = ({ slides, autoPlay = true, interval = 5000 }: CarouselProps) =
           {/* Slider 03 */}
         {slides[currentIndex].id === "03" && 
           <div className='flex flex-col items-end justify-center gap-7 md:gap-0 md:justify-between text-white h-full p-4 md:p-32 '>
-            <div className='w-full flex md:justify-start justify-end'>
+            <div className='w-full flex md:justify-end justify-end'>
               <OverlayBunner bg='bg-[#E6C77C]'/>
             </div>
 
             <div className='md:bg-transparent bg-white bg-opacity-20 p-2 md:p-0'>
-              <Headline textColor='#78719B' text='Conheça nossa linha de perfumes para casa:'/>
+              <Headline textColor='#78719B' contentText='Conheça nossa linha de perfumes para casa:' textColorSec="text-[#53532F]"/>
             </div>
           </div>}
 
