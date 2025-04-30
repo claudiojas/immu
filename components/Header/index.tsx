@@ -47,7 +47,7 @@ const Header = () => {
           className="md:hidden text-gray-700 bg-manancial-purple"
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
         >
-          <Menu />
+          <Menu className='text-white'/>
         </Button>
       </div>
 
