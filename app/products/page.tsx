@@ -6,6 +6,7 @@ import { Card, CardContent } from '@immu/@/components/ui/card';
 import { NavigationMenu, NavigationMenuList, NavigationMenuItem, NavigationMenuTrigger, NavigationMenuContent, NavigationMenuLink } from '@immu/@/components/ui/navigation-menu';
 import { Search, ShoppingCart } from 'lucide-react';
 import { useProducts } from '@immu/contexts/ProductContext';
+import Link from 'next/link';
 
 const priceRanges = [
   "Até R$ 50",
@@ -188,12 +189,17 @@ export default function Products() {
                     <span className="text-manancial-purple font-bold text-xl">
                       R$ {parseFloat(product.price).toFixed(2)}
                     </span>
-                    <Button
-                      variant="outline"
-                      className="text-manancial-purple border-manancial-purple hover:bg-manancial-purple hover:text-white transition-colors"
-                    >
-                      Ver Detalhes
-                    </Button>
+
+                    <Link href={`/products/${product.id}`}>
+                      <Button
+                        variant="outline"
+                        className="text-manancial-purple border-manancial-purple hover:bg-manancial-purple hover:text-white transition-colors"
+                      >
+                        Ver Detalhes
+                      </Button>
+                    </Link>
+
+
                   </div>
                 </CardContent>
               </Card>
