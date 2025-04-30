@@ -3,7 +3,6 @@
 import { createContext, useContext, useEffect, useState, ReactNode } from 'react';
 import { ProductContextProps, IProducts, YampiProduct } from './interfaces';
 
-
 const ProductContext = createContext<ProductContextProps | undefined>(undefined);
 
 export const ProductProvider = ({ children }: { children: ReactNode }) => {
@@ -24,14 +23,17 @@ export const ProductProvider = ({ children }: { children: ReactNode }) => {
           const essence = variations.find((v) => v.name === "ESSÊNCIA")?.value || "";
           const amount = variations.find((v) => v.name === "MEDIDA")?.value || "";
 
+          // Capturando todas as imagens
+          const images = item.images?.data?.map(image => image.thumb.url) || [];
+
           return {
             id: item.id,
             title: item.name,
-            imageSrc: item.images?.data?.[0]?.thumb?.url || "",
+            images, // Passando o array de imagens
             price: item.skus?.data?.[0]?.price_sale?.toFixed(2) || "0.00",
             amount,
             essence,
-            category: item.categories.data[0]?.name || "" 
+            category: item.categories.data[0]?.name || "",
           };
         });
 

@@ -11,7 +11,6 @@ const ProductsSection = () => {
   const productsPerSlide = 4; // Para desktop
   const isMobile = typeof window !== "undefined" && window.innerWidth < 1024;
 
-
   if (loading) return <p className='flex items-center justify-center'>Carregando...</p>;
   if (error) return <div>{error}</div>;
 
@@ -29,15 +28,13 @@ const ProductsSection = () => {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 transition-all duration-500 ease-in-out">
           {visibleProducts.map(product => (
-            <Link  key={product.id} href={`/products/${product.id}`}>
-
+            <Link key={product.id} href={`/products/${product.id}`}>
               <ProductCard
-                image={product.imageSrc}
+                images={product.images.map((image: string) => ({ thumb: { url: image } }))}
                 title={product.title} 
                 description={product.essence}
                 price={product.price}
               />
-
             </Link>
           ))}
         </div>
@@ -57,19 +54,6 @@ const ProductsSection = () => {
           </div>
         )}
       </div>
-
-      {/* Purple Wave Pattern */}
-      {/* <div
-        className="absolute md:-top-1 -top-16 left-0 w-full overflow-hidden rotate-180"
-        style={{ height: "100px" }}
-      >
-        <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
-          <path
-            d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z"
-            fill="#ffffff"
-          ></path>
-        </svg>
-      </div> */}
     </section>
   );
 };

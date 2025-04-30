@@ -160,8 +160,9 @@ export default function Products() {
             {currentProducts.map((product) => (
               <Card key={product.id} className="overflow-hidden hover:shadow-lg transition-shadow duration-300">
                 <div className="relative h-56 overflow-hidden group">
+                  {/* Usando a primeira imagem do array de imagens */}
                   <Image
-                    src={product.imageSrc}
+                    src={product.images[0]} // A primeira imagem do array
                     alt={product.title}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300 ease-in-out"
                     width={300}
@@ -198,8 +199,6 @@ export default function Products() {
                         Ver Detalhes
                       </Button>
                     </Link>
-
-
                   </div>
                 </CardContent>
               </Card>

@@ -19,7 +19,7 @@ export default function ProductDetailPage() {
 
   useEffect(() => {
     if (product) {
-      setSelectedImage(product.imageSrc);
+      setSelectedImage(product.images[0]); // Inicializa com a primeira imagem do array
     }
   }, [product]);
 
@@ -40,18 +40,14 @@ export default function ProductDetailPage() {
   if (error) return <div className="text-center py-10 text-red-500">{error}</div>;
   if (!product) return <div className="text-center py-10">Produto não encontrado.</div>;
 
-  // Preparar imagens (por enquanto, apenas imageSrc única)
-  const images = product.images?.length ? product.images : [product.imageSrc];
-
   return (
     <main className="container mx-auto px-4 py-10">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         {/* Imagens */}
         <div className="flex flex-col-reverse md:flex-row gap-4">
-
           {/* Miniaturas */}
-          <div className="flex gap-2">
-            {images.map((img, idx) => (
+          <div className="flex md:flex-col gap-2">
+            {product.images.map((img, idx) => (
               <button
                 key={idx}
                 onClick={() => setSelectedImage(img)}
@@ -73,14 +69,13 @@ export default function ProductDetailPage() {
           {/* Imagem principal */}
           <div className="relative w-full h-[400px] bg-gray-100 rounded-lg overflow-hidden">
             <Image
-              src={selectedImage || product.imageSrc}
+              src={selectedImage || product.images[0]} // Usa a imagem selecionada ou a primeira
               alt={product.title}
               fill
               className="object-contain"
               sizes="(max-width: 768px) 100vw, 50vw"
             />
           </div>
-
         </div>
 
         {/* Informações do Produto */}

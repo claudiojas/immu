@@ -1,10 +1,10 @@
+
 export interface IProducts {
   category: string;
   essence: string;
   amount: string;
   price: string;
-  imageSrc: string;
-  images?: string[];
+  images: string[];
   title: string;
   id: number;
 }
@@ -36,7 +36,7 @@ export interface YampiProduct {
   id: number;
   name: string;
   images?: {
-    data: ImageData[];
+    data: ImageData[]; // Agora permitimos múltiplas imagens
   };
   skus?: {
     data: Sku[];

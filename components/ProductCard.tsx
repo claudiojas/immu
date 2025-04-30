@@ -1,16 +1,18 @@
-
 import { Button } from '@immu/@/components/ui/button';
-import Image, { StaticImageData } from 'next/image';
+import Image from 'next/image';
 import React from 'react';
 
 type ProductCardProps = {
-  image: string | StaticImageData;
+  images: { thumb: { url: string } }[]; // Array de imagens
   title: string;
   description: string;
   price: string;
 };
 
-const ProductCard = ({ image, title, description, price }: ProductCardProps) => {
+const ProductCard = ({ images, title, description, price }: ProductCardProps) => {
+  // Pega a primeira imagem do array (caso exista)
+  const image = images?.[0]?.thumb?.url || '/default-image.jpg'; 
+
   return (
     <div className="bg-white rounded-2xl shadow-md overflow-hidden transform transition-all duration-300 hover:scale-[1.03] md:h-[620px] flex flex-col justify-between border border-pink-100 text-manancial-purple">
       <div className="overflow-hidden rounded-t-2xl">
@@ -39,4 +41,3 @@ const ProductCard = ({ image, title, description, price }: ProductCardProps) => 
 };
 
 export default ProductCard;
-
