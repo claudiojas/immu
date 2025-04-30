@@ -28,13 +28,13 @@ const Header = () => {
 
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center space-x-6">
-          <Link href="/" className={pathname === '/' ? 'text-manancial-purple font-semibold ' : `text-gray-700 hover:text-manancial-purple hover:underline hover:decoration-manancial-purple hover:decoration-2 hover:underline-offset-4 font-semibold transition-colors`}>
+          <Link href="/" className={pathname === '/' ? 'text-manancial-purple font-semibold underline decoration-manancial-purple decoration-2 underline-offset-4' : `text-gray-700 hover:text-manancial-purple hover:underline hover:decoration-manancial-purple hover:decoration-2 hover:underline-offset-4 font-semibold transition-colors`}>
             Início
           </Link>
-          <Link href="/aboutUs" className={pathname === '/aboutUs' ? 'text-manancial-purple font-semibold ' : "text-gray-700 hover:text-manancial-purple hover:underline hover:decoration-manancial-purple hover:decoration-2 hover:underline-offset-4 font-semibold transition-colors"}>
+          <Link href="/aboutUs" className={pathname === '/aboutUs' ? 'text-manancial-purple font-semibold underline decoration-manancial-purple decoration-2 underline-offset-4' : "text-gray-700 hover:text-manancial-purple hover:underline hover:decoration-manancial-purple hover:decoration-2 hover:underline-offset-4 font-semibold transition-colors"}>
             Saiba &#43;
           </Link>
-          <Link href="/products" className={pathname === '/products' ? 'text-manancial-purple font-semibold '  : 'text-gray-700 hover:text-manancial-purple hover:underline hover:decoration-manancial-purple hover:decoration-2 hover:underline-offset-4 font-semibold transition-colors'}>
+          <Link href="/products" className={pathname === '/products' ? 'text-manancial-purple font-semibold underline decoration-manancial-purple decoration-2 underline-offset-4'  : 'text-gray-700 hover:text-manancial-purple hover:underline hover:decoration-manancial-purple hover:decoration-2 hover:underline-offset-4 font-semibold transition-colors'}>
             Nossos Produtos
           </Link>
           <Button className="bg-manancial-purple hover:bg-manancial-pink text-white">

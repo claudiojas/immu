@@ -13,6 +13,7 @@ export default function ProductDetailPage() {
   const { products, loading, error } = useProducts();
 
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
+  const [quantity, setQuantity] = useState<number>(1);
 
   const product = products.find((p) => p.id === Number(id));
 
@@ -22,16 +23,25 @@ export default function ProductDetailPage() {
     }
   }, [product]);
 
+  const increaseQuantity = () => setQuantity((prev) => prev + 1);
+  const decreaseQuantity = () =>
+    setQuantity((prev) => (prev > 1 ? prev - 1 : 1));
+
+  const handleBack = () => {
+    router.push('/products'); // Isso redireciona para a página de produtos
+  };
+
+  const handleAddToCart = () => {
+    // Aqui você pode adicionar a lógica para adicionar o produto ao carrinho com a quantidade
+    console.log(`Produto: ${product?.title}, Quantidade: ${quantity}`);
+  };
+
   if (loading) return <div className="text-center py-10">Carregando...</div>;
   if (error) return <div className="text-center py-10 text-red-500">{error}</div>;
   if (!product) return <div className="text-center py-10">Produto não encontrado.</div>;
 
   // Preparar imagens (por enquanto, apenas imageSrc única)
   const images = product.images?.length ? product.images : [product.imageSrc];
-
-  const handleBack = () => {
-    router.push('/products'); // Isso redireciona para a página de produtos
-  };
 
   return (
     <main className="container mx-auto px-4 py-10">
@@ -87,8 +97,39 @@ export default function ProductDetailPage() {
               R$ {parseFloat(product.price).toFixed(2)}
             </div>
 
+            {/* Seletor de Quantidade */}
+            <div className="flex items-center gap-4">
+              <span className="text-sm text-gray-700">Quantidade:</span>
+              <div className="flex items-center border border-gray-300 rounded">
+                <button
+                  type="button"
+                  onClick={decreaseQuantity}
+                  className="px-3 py-1 text-lg font-bold text-gray-600 hover:text-black"
+                >
+                  -
+                </button>
+                <input
+                  type="number"
+                  min="1"
+                  value={quantity}
+                  onChange={(e) => setQuantity(Math.max(1, Number(e.target.value)))}
+                  className="w-12 text-center outline-none"
+                />
+                <button
+                  type="button"
+                  onClick={increaseQuantity}
+                  className="px-3 py-1 text-lg font-bold text-gray-600 hover:text-black"
+                >
+                  +
+                </button>
+              </div>
+            </div>
+
             <div className="flex flex-col sm:flex-row gap-4">
-              <Button className="w-full sm:w-auto bg-manancial-purple hover:bg-manancial-pink text-white">
+              <Button
+                className="w-full sm:w-auto bg-manancial-purple hover:bg-manancial-pink text-white"
+                onClick={handleAddToCart}
+              >
                 Adicionar ao Carrinho
               </Button>
               <Button
