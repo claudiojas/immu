@@ -6,14 +6,21 @@ import Link from 'next/link';
 import { Button } from '@immu/@/components/ui/button';
 import logo from '../../assets/logo.png';
 import { usePathname } from 'next/navigation';
+import DonationModal from '../DonationModal';
 
 const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const pathname = usePathname();
 
-
+  const handleButtonDonation = () => [
+    setIsModalOpen(true),
+    setMobileMenuOpen(false)
+  ]
   return (
     <header className="bg-white sticky top-0 z-50 shadow-sm">
+      <DonationModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
+        
       <div className="container mx-auto px-4 py-2 flex justify-between items-center ">
         <div className="flex items-center">
           <Link href="/" className="flex items-center">
@@ -37,7 +44,7 @@ const Header = () => {
           <Link href="/products" className={pathname === '/products' ? 'text-manancial-purple font-semibold underline decoration-manancial-purple decoration-2 underline-offset-4'  : 'text-gray-700 hover:text-manancial-purple hover:underline hover:decoration-manancial-purple hover:decoration-2 hover:underline-offset-4 font-semibold transition-colors'}>
             Nossos Produtos
           </Link>
-          <Button className="bg-manancial-purple hover:bg-manancial-pink text-white">
+          <Button className="bg-manancial-purple hover:bg-manancial-pink text-white" onClick={() => handleButtonDonation()}>
             Quero Doar
           </Button>
         </nav>
@@ -78,7 +85,7 @@ const Header = () => {
             </Link>
             <Button 
               className="bg-manancial-purple hover:bg-manancial-pink text-white w-full"
-              onClick={() => setMobileMenuOpen(false)}
+              onClick={() => handleButtonDonation()}
             >
               Quero Doar
             </Button>
