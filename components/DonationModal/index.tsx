@@ -45,9 +45,9 @@ const DonationModal: React.FC<DonationModalProps> = ({ isOpen, onClose }) => {
 
             <div className="flex justify-center mb-4">
               <PIX
-                pixkey="sua-chave-pix@example.com"
-                merchant="Nome da Empresa"
-                city="Sua Cidade"
+                pixkey="46865616000126"
+                merchant="INSTITUTO MANANCIAL MAOS UNIDAS"
+                city="Serra"
                 amount={null}
                 size={180}
               />
@@ -56,7 +56,7 @@ const DonationModal: React.FC<DonationModalProps> = ({ isOpen, onClose }) => {
             <div className="bg-pink-50 p-3 rounded-lg mb-4">
               <p className="text-center font-semibold text-pink-700">Chave Pix:</p>
               <p className="text-center font-mono text-sm break-all">
-                sua-chave-pix@example.com
+              46865616000126
               </p>
             </div>
 

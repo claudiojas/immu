@@ -22,7 +22,7 @@ const FloatingWhatsappButton: React.FC<FloatingWhatsappButtonProps> = ({
     className="fixed z-50 right-8 bottom-8 bg-green-500 hover:bg-green-600 text-white rounded-full shadow-lg p-4 flex items-center justify-center animate-fade-in transition-all"
     style={{
       boxShadow: "0 2px 24px rgba(39, 174, 96, 0.24)",
-      animation: "pulse 2.5s infinite", // animação CSS
+      animation: "pulse 2.0s infinite", // animação CSS
     }}
   >
     <FaWhatsapp size={28} />

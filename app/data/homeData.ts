@@ -125,23 +125,23 @@ export const testimonials = [
     name: "Luciene",
     age: "45 anos",
     text: "Tenho mais concentração, ali tem bate papo, tem pintura, aprendemos a pintar pano de prato e a fazer pulseiras. É muito bom estar no instituto.",
-    videoUrl: "#"
+    videoUrl: "https://www.youtube.com/@immuvideos"
   },
   {
     id: 2,
     image: mLurdes,
-    name: "Luciene",
+    name: "Maria de Lurdes",
     age: "45 anos",
-    text: "Tenho mais concentração, ali tem bate papo, tem pintura, aprendemos a pintar pano de prato e a fazer pulseiras. É muito bom estar no instituto.",
-    videoUrl: "#"
+    text: " A gente entra uma pessoa e saí outra, totalmente renovada. Ali é lugar da gente trabalhar e aprender a fazer as coisas para se manter.",
+    videoUrl: "https://www.youtube.com/@immuvideos"
   },
   {
     id: 3,
     image: mariane,
-    name: "Luciene",
+    name: "Mariane",
     age: "45 anos",
-    text: "Tenho mais concentração, ali tem bate papo, tem pintura, aprendemos a pintar pano de prato e a fazer pulseiras. É muito bom estar no instituto.",
-    videoUrl: "#"
+    text: "Meu nome é Mariane , eu faço parte do instituto desde 2022 , desde então eu me sinto outra pessoa , o instituto nos oferece várias atividades como artesanato, arteterapia etc",
+    videoUrl: "https://www.youtube.com/@immuvideos"
   }
 ];
 
