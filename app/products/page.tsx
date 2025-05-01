@@ -7,6 +7,7 @@ import { NavigationMenu, NavigationMenuList, NavigationMenuItem, NavigationMenuT
 import { Search, ShoppingCart } from 'lucide-react';
 import { useProducts } from '@immu/contexts/ProductContext';
 import Link from 'next/link';
+import { handleAddToCart } from '../utils/addProductCart';
 
 const priceRanges = [
   "Até R$ 50",
@@ -173,6 +174,7 @@ export default function Products() {
                       variant="outline"
                       size="icon"
                       className="rounded-full bg-white text-manancial-purple hover:bg-manancial-pink hover:text-white border-none"
+                      onClick={() => handleAddToCart(product)}
                     >
                       <ShoppingCart size={18} />
                     </Button>

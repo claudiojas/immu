@@ -1,13 +1,8 @@
 import { Button } from '@immu/@/components/ui/button';
+import { ProductCardProps } from '@immu/types/product';
 import Image from 'next/image';
 import React from 'react';
 
-type ProductCardProps = {
-  images: { thumb: { url: string } }[]; // Array de imagens
-  title: string;
-  description: string;
-  price: string;
-};
 
 const ProductCard = ({ images, title, description, price }: ProductCardProps) => {
   // Pega a primeira imagem do array (caso exista)

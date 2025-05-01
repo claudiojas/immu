@@ -34,6 +34,7 @@ const ProductsSection = () => {
                 title={product.title} 
                 description={product.essence}
                 price={product.price}
+                id={product.id}
               />
             </Link>
           ))}

@@ -8,11 +8,14 @@ import { Button } from '@immu/@/components/ui/button';
 import logo from '../../assets/logo.png';
 import { usePathname } from 'next/navigation';
 import DonationModal from '../DonationModal';
+import useCartCount from '@immu/app/hooks/useCartCount';
 
 const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const pathname = usePathname();
+  const cartCount = useCartCount();
+
 
   const handleButtonDonation = () => [
     setIsModalOpen(true),
@@ -49,7 +52,7 @@ const Header = () => {
             <Link href="/cart" className="text-gray-700 hover:text-manancial-purple transition-colors relative">
               <FaShoppingCart size={22} />
               <span className="absolute -top-2 -right-2 bg-manancial-pink text-white text-xs w-4 h-4 rounded-full flex items-center justify-center">
-                0
+              {cartCount}
               </span>
             </Link>
           </div>
