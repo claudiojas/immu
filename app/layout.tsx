@@ -3,6 +3,7 @@ import "./globals.css";
 import { Footer, Header } from "@immu/components/index";
 import { Murecho, Inter, Ubuntu } from "next/font/google";
 import { ProductProvider } from "@immu/contexts/ProductContext";
+import FloatingWhatsappButton from "@immu/components/FloatingWhatsappButton";
 
 const murecho = Murecho({
   subsets: ["latin"],
@@ -37,6 +38,8 @@ export default function RootLayout({
       <body className="antialiased font-murecho">
         <ProductProvider>
           <Header />
+           {/* Rdirecting to whatsapp */}
+           <FloatingWhatsappButton />
             {children}
           <Footer />
         </ProductProvider>
