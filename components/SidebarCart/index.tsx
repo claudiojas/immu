@@ -3,6 +3,8 @@
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { getCart } from '@immu/app/hooks/useCart';
+import { Button } from '@immu/@/components/ui/button';
+import Link from 'next/link';
 
 interface SidebarCartProps {
   isOpen: boolean;
@@ -57,33 +59,41 @@ export function SidebarCart({ isOpen, toggleSidebar }: SidebarCartProps) {
                 <>
                 {cartItems.map((item, index) => (
                     <div key={index} className="flex items-center justify-between gap-4 border-b py-2">
-                    <div className="w-16 h-16 relative">
-                        <Image
-                        src={item.images[0]}
-                        alt={item.title}
-                        layout="fill"
-                        objectFit="cover"
-                        className="rounded"
-                        />
-                    </div>
-                    <div className="flex-1">
-                        <p className="font-semibold">{item.title}</p>
-                        <p className="text-sm text-gray-600">Qtd: {item.quantity}</p>
-                    </div>
-                    <div className="text-right">
-                        <p className="font-semibold">
-                        R$ {(parseFloat(item.price) * (item.quantity || 1)).toFixed(2)}
-                        </p>
-                    </div>
+                        <div className="w-16 h-16 relative">
+                            <Image
+                                src={item.images[0]}
+                                alt={item.title}
+                                layout="fill"
+                                objectFit="cover"   
+                                className="rounded"
+                            />
+                        </div>
+
+                        <div className="flex-1">
+                            <p className="font-semibold">{item.title}</p>
+                            <p className="text-sm text-gray-600">Qtd: {item.quantity}</p>
+                        </div>
+
+                        <div className="text-right">
+                            <p className="font-semibold">
+                                R$ {(parseFloat(item.price) * (item.quantity || 1)).toFixed(2)}
+                            </p>
+                        </div>
                     </div>
                 ))}
+                
                 <div className="flex justify-between mt-4 font-semibold">
                     <p>Total:</p>
                     <p>R$ {totalPrice}</p>
                 </div>
                 </>
             )}
+
+            <Link href="/cart">
+                <Button className='mt-8'>Carrinho de compras</Button>
+            </Link>
             </div>
+
         </div>
         </div>
     ) : null;
