@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from 'react';
+import { useState } from 'react';
 import Image from 'next/image';
 import { Button } from '@immu/@/components/ui/button';
 import { Card, CardContent } from '@immu/@/components/ui/card';
@@ -8,6 +8,7 @@ import { Search, ShoppingCart } from 'lucide-react';
 import { useProducts } from '@immu/contexts/ProductContext';
 import Link from 'next/link';
 import { handleAddToCart } from '../utils/addProductCart';
+import { SidebarCart } from '@immu/components/SidebarCart';
 
 const priceRanges = [
   "Até R$ 50",
@@ -21,6 +22,8 @@ export default function Products() {
   const [selectedPriceRange, setSelectedPriceRange] = useState<string | null>(null);
   const [searchTerm, setSearchTerm] = useState('');
   const { products, error, loading } = useProducts();
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+
 
   const categories = Array.from(new Set(products.map((product) => product.category)));
 
@@ -71,8 +74,16 @@ export default function Products() {
   if (loading) return <p className='flex items-center justify-center'>Carregando...</p>;
   if (error) return <div>{error}</div>;
 
+  const toggleSidebar = () => {
+    setIsSidebarOpen((prevState) => !prevState);
+  };
+
   return (
     <div className="min-h-screen flex flex-col">
+       {/* Navbar lateral (Sidebar) */}
+       <SidebarCart isOpen={isSidebarOpen} toggleSidebar={toggleSidebar} />
+
+      
       <main className="flex-1 py-8 px-4">
         <div className="container mx-auto">
           {/* Filtros - Adicionado um botão para abrir os filtros no mobile */}
@@ -174,7 +185,10 @@ export default function Products() {
                       variant="outline"
                       size="icon"
                       className="rounded-full bg-white text-manancial-purple hover:bg-manancial-pink hover:text-white border-none"
-                      onClick={() => handleAddToCart(product)}
+                      onClick={() => {
+                        handleAddToCart(product);
+                        toggleSidebar();
+                      }}
                     >
                       <ShoppingCart size={18} />
                     </Button>

@@ -28,7 +28,7 @@ const Header = () => {
       : 'text-gray-700 hover:text-manancial-purple hover:underline hover:decoration-manancial-purple hover:decoration-2 hover:underline-offset-4 font-semibold transition-colors';
 
   return (
-    <header className="bg-white bg-opacity-80 sticky top-0 z-50 shadow-sm">
+    <header className="bg-white bg-opacity-80 sticky top-0 z-30 shadow-sm">
       <DonationModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
 
       <div className="container mx-auto px-4 py-2 flex justify-between items-center">

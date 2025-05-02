@@ -6,6 +6,8 @@ import Image from 'next/image';
 import { Button } from '@immu/@/components/ui/button';
 import { Card, CardContent } from '@immu/@/components/ui/card';
 import { useProducts } from '@immu/contexts/ProductContext';
+import { addToCart } from '@immu/app/hooks/useCart';
+
 
 export default function ProductDetailPage() {
   const { id } = useParams();
@@ -19,7 +21,7 @@ export default function ProductDetailPage() {
 
   useEffect(() => {
     if (product) {
-      setSelectedImage(product.images[0]); // Inicializa com a primeira imagem do array
+      setSelectedImage(product.images[0]);
     }
   }, [product]);
 
@@ -27,25 +29,29 @@ export default function ProductDetailPage() {
   const decreaseQuantity = () =>
     setQuantity((prev) => (prev > 1 ? prev - 1 : 1));
 
-  const handleBack = () => {
-    router.push('/products'); // Isso redireciona para a página de produtos
-  };
+  const handleBack = () => router.push('/products');
 
   const handleAddToCart = () => {
-    // Aqui você pode adicionar a lógica para adicionar o produto ao carrinho com a quantidade
-    console.log(`Produto: ${product?.title}, Quantidade: ${quantity}`);
+    if (!product) return;
+    const itemToAdd = {
+      ...product,
+      quantity,
+    };
+    addToCart(itemToAdd);
+    router.push('/cart'); // redireciona para o carrinho após adicionar
   };
 
   if (loading) return <div className="text-center py-10">Carregando...</div>;
   if (error) return <div className="text-center py-10 text-red-500">{error}</div>;
   if (!product) return <div className="text-center py-10">Produto não encontrado.</div>;
 
+  const totalPrice = (parseFloat(product.price) * quantity).toFixed(2);
+
   return (
     <main className="container mx-auto px-4 py-10">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         {/* Imagens */}
         <div className="flex flex-col-reverse md:flex-row gap-4">
-          {/* Miniaturas */}
           <div className="flex md:flex-col gap-2">
             {product.images.map((img, idx) => (
               <button
@@ -66,10 +72,9 @@ export default function ProductDetailPage() {
             ))}
           </div>
 
-          {/* Imagem principal */}
           <div className="relative w-full h-[400px] bg-gray-100 rounded-lg overflow-hidden">
             <Image
-              src={selectedImage || product.images[0]} // Usa a imagem selecionada ou a primeira
+              src={selectedImage || product.images[0]}
               alt={product.title}
               fill
               className="object-contain"
@@ -87,11 +92,11 @@ export default function ProductDetailPage() {
               </span>
               <h1 className="text-2xl font-bold mt-2">{product.title}</h1>
               <p className="text-sm text-gray-600 mt-2">Essência: {product.essence}</p>
-              <p className="text-sm text-gray-600">Quantidade: {product.amount}</p>
+              <p className="text-sm text-gray-600">Quantidade em estoque: {product.amount}</p>
             </div>
 
-            <div className="text-3xl font-bold text-manancial-purple">
-              R$ {parseFloat(product.price).toFixed(2)}
+            <div className="text-2xl font-bold text-manancial-purple">
+              Total: R$ {totalPrice}
             </div>
 
             {/* Seletor de Quantidade */}
@@ -101,7 +106,10 @@ export default function ProductDetailPage() {
                 <button
                   type="button"
                   onClick={decreaseQuantity}
-                  className="px-3 py-1 text-lg font-bold text-gray-600 hover:text-black"
+                  className={`px-3 py-1 text-lg font-bold ${
+                    quantity <= 1 ? 'text-gray-400 cursor-not-allowed opacity-50' : 'text-gray-600 hover:text-black'
+                  }`}
+                  disabled={quantity <= 1}
                 >
                   -
                 </button>
