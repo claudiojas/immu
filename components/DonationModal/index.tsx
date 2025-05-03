@@ -62,15 +62,6 @@ const DonationModal: React.FC<DonationModalProps> = ({ isOpen, onClose }) => {
             </p>
 
             <div className="flex justify-center mb-4">
-              {/* <PIX
-                pixkey="46865616000126"
-                merchant="Intituto Manancial Maos Unidas"
-                city="Serra"
-                amount={null}
-                size={180}
-                onLoad={(payload) => console.log(payload)}
-              /> */}
-
               {payload ? (
                 <QRCode value={payload} size={256} />
               ) : (
@@ -88,12 +79,12 @@ const DonationModal: React.FC<DonationModalProps> = ({ isOpen, onClose }) => {
             <div className="mt-4 border-t border-gray-200 pt-4">
               <h3 className="text-lg font-semibold text-pink-600 mb-2 text-center">Dados Bancários</h3>
               <ul className="text-sm text-gray-700 space-y-1">
-                <li><strong>Banco:</strong> Banco Exemplo S.A. (000)</li>
-                <li><strong>Agência:</strong> 1234</li>
-                <li><strong>Conta:</strong> 56789-0</li>
+                <li><strong>Banco:</strong> Banco Cora SCD (403)</li>
+                <li><strong>Agência:</strong> 0001</li>
+                <li><strong>Conta:</strong> 2744433-1</li>
                 <li><strong>Tipo:</strong> Conta Corrente</li>
-                <li><strong>Favorecido:</strong> Nome da Empresa</li>
-                <li><strong>CNPJ:</strong> 12.345.678/0001-99</li>
+                <li><strong>Favorecido:</strong> Instituto Manancial Mãos Unidas</li>
+                <li><strong>CNPJ:</strong> 46.865.616/0001-26</li>
               </ul>
             </div>
 
