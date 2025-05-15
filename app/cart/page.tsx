@@ -4,7 +4,8 @@ import { useEffect, useState } from 'react';
 import Image from 'next/image';
 import { ICartProduct, getCart, clearCart, removeFromCart, incrementQuantity, decrementQuantity } from '../hooks/useCart';
 import { Button } from '@immu/@/components/ui/button';
-import CheckoutModal from '@immu/components/CheckoutModal';
+import { CheckoutModal } from '@immu/components/CheckoutModal';
+
 
 const CartPage = () => {
     const [cartItems, setCartItems] = useState<ICartProduct[]>([]);
@@ -130,11 +131,12 @@ const CartPage = () => {
             </div>
 
             {isModalOpen && (
-              <CheckoutModal 
-                isOpen={isModalOpen} 
-                onClose={setIsModalOpen} 
-                amount={0}          
-              />
+              <CheckoutModal
+                open={isModalOpen}
+                onClose={() => setIsModalOpen(false)}
+                cartItems={cartItems}
+                totalPrice={totalPrice}
+            />
             )}
           </div>
         )}

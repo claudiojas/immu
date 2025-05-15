@@ -1,70 +1,86 @@
-import React, { Dispatch, SetStateAction, useState } from 'react';
-import { Button } from '@immu/@/components/ui/button';
-import PixQRCode from '../PixQRCode';
+import { Button } from "@immu/@/components/ui/button";
+import { Dialog, DialogContent, DialogTitle } from "@immu/@/components/ui/dialog";
+import { ICartProduct } from "@immu/app/hooks/useCart";
+import PixQRCode from "../PixQRCode";
 
 interface CheckoutModalProps {
-  isOpen: boolean;
-  onClose: Dispatch<SetStateAction<boolean>>;
-  amount: number; // valor da compra
+  open: boolean;
+  onClose: () => void;
+  cartItems: ICartProduct[];
+  totalPrice: string;
 }
 
-const CheckoutModal: React.FC<CheckoutModalProps> = ({ isOpen, onClose, amount }) => {
-  const [copied, setCopied] = useState(false);
-  const pixKey = '46865616000126';
-  const name = 'Instituto Manancial Maos Unidas';
-  const city = 'Serra';
+export function CheckoutModal({ open, onClose, cartItems, totalPrice }: CheckoutModalProps) {
+  const message = `
+Olá, eu gostaria de efetuar estas compras:
+${cartItems.map(item => `• ${item.quantity}x ${item.title} (${item.essence}) - R$ ${(parseFloat(item.price) * (item.quantity || 1)).toFixed(2)}`).join('\n')}
+Total: R$ ${totalPrice}
 
-  const handleCopyPixKey = () => {
-    navigator.clipboard.writeText(pixKey);
-    setCopied(true);
-    setTimeout(() => setCopied(false), 3000);
-  };
+📌 Chave Pix: 46865616000126
+🏦 Conta Corrente:
+Banco: Banco Cora SCD (403)
+Agência: 0001
+Conta: 2744433-1
+Favorecido: Instituto Manancial Mãos Unidas
+CNPJ: 46.865.616/0001-26
+`.trim();
 
-  if (!isOpen) return null;
+  const encodedMessage = encodeURIComponent(message);
+  const whatsappUrl = `https://wa.me/+5511991234568?text=${encodedMessage}`;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
-      <div className="bg-white rounded-2xl p-6 max-w-md w-full relative shadow-lg">
-        <button
-          onClick={() => onClose(false)}
-          className="absolute top-2 right-2 text-gray-500 hover:text-gray-700 text-2xl"
-        >
-          &times;
-        </button>
+    <Dialog open={open} onOpenChange={onClose}>
+        <DialogContent className="max-w-md w-full rounded-xl p-0 sm:p-2 flex flex-col h-[90vh] sm:h-auto">
+            <div className="overflow-y-auto px-4 sm:px-6 py-4 space-y-4">
+                <DialogTitle className="text-lg sm:text-xl font-bold text-center">
+                    Como Finalizar Sua Compra
+                </DialogTitle>
 
-        <h2 className="text-2xl font-bold text-green-600 mb-4 text-center">
-          Finalize seu Pagamento
-        </h2>
+                <p className="text-sm sm:text-base text-gray-700 text-center">
+                    O pagamento será feito por <strong>Pix</strong> ou <strong>depósito/transferência</strong> em conta bancária.
+                    Após o pagamento, envie o comprovante por WhatsApp.
+                </p>
 
-        <p className="text-center text-gray-700 mb-4">
-          Escaneie o QR Code Pix abaixo para pagar <strong>R$ {amount.toFixed(2)}</strong>
-        </p>
+                <div className="text-left text-sm text-gray-600 space-y-1">
+                    <p className="font-semibold">⚠️ Regras:</p>
+                    <ul className="list-disc pl-5">
+                    <li>Pagamentos via <strong>Pix</strong> são confirmados rapidamente.</li>
+                    <li>Transferência bancária requer <strong>confirmação manual</strong>.</li>
+                    <li>Atendimento em horário comercial.</li>
+                    </ul>
+                </div>
 
-        <PixQRCode
-          pixKey={pixKey}
-          name={name}
-          city={city}
-          amount={amount}
-          className="mb-4"
-        />
+                <div className="flex flex-col items-center space-y-3 pt-2">
+                    <p className="text-sm font-medium text-gray-700 text-center">
+                    Se preferir usar o QR Code, ele está disponível abaixo:
+                    </p>
 
-        <div className="bg-green-50 p-3 rounded-lg mb-4 text-center">
-          <p className="font-semibold text-green-700">Chave Pix:</p>
-          <p className="font-mono text-sm break-all mb-2">{pixKey}</p>
-          <button
-            onClick={handleCopyPixKey}
-            className="text-sm text-green-700 underline hover:text-green-900"
-          >
-            {copied ? 'Copiado!' : 'Copiar chave Pix'}
-          </button>
-        </div>
+                    <PixQRCode
+                    pixKey="46865616000126"
+                    name="Instituto Manancial Maos Unidas"
+                    city="Serra"
+                    amount={Number(totalPrice)}
+                    className="max-w-[180px] sm:max-w-[220px] w-full h-auto"
+                    />
 
-        <div className="mt-4 text-center">
-          <Button onClick={() => onClose(false)}>Fechar</Button>
-        </div>
-      </div>
-    </div>
+                    <p className="text-base font-semibold text-center">
+                    Total da compra: <span className="text-manancial-purple">R$ {totalPrice}</span>
+                    </p>
+                </div>
+            </div>
+
+            {/* Botão fixo no final */}
+            <div className="border-t border-gray-200 p-4">
+                <Button
+                    asChild
+                    className="bg-green-600 hover:bg-green-700 text-white w-full text-base py-3"
+                >
+                    <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">
+                    Seguir para o WhatsApp
+                    </a>
+                </Button>
+            </div>
+        </DialogContent>
+    </Dialog>
   );
-};
-
-export default CheckoutModal;
+}
