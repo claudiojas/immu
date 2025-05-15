@@ -28,6 +28,8 @@ export const carouselSlides = [
 import luciene from '../../assets/testimonial/Luciene Foto.jpg'
 import mLurdes from '../../assets/testimonial/Maria de Lurdes Foto.jpg'
 import mariane from '../../assets/testimonial/Mariane Foto.jpg'
+import marciane from '../../assets/testimonial/Marciane.jpg'
+import edite from '../../assets/testimonial/edite.png'
 
 
 import productExemple from '../../assets/products/product__exemple.svg'
@@ -125,7 +127,7 @@ export const testimonials = [
     name: "Luciene",
     age: "45 anos",
     text: "Tenho mais concentração, ali tem bate papo, tem pintura, aprendemos a pintar pano de prato e a fazer pulseiras. É muito bom estar no instituto.",
-    videoUrl: "https://www.youtube.com/@immuvideos"
+    videoUrl: "https://www.youtube.com/shorts/VMlILpDBdl4"
   },
   {
     id: 2,
@@ -133,7 +135,7 @@ export const testimonials = [
     name: "Maria de Lurdes",
     age: "45 anos",
     text: " A gente entra uma pessoa e saí outra, totalmente renovada. Ali é lugar da gente trabalhar e aprender a fazer as coisas para se manter.",
-    videoUrl: "https://www.youtube.com/@immuvideos"
+    videoUrl: "https://www.youtube.com/shorts/EBsWL3H8q9g"
   },
   {
     id: 3,
@@ -142,7 +144,33 @@ export const testimonials = [
     age: "45 anos",
     text: "Meu nome é Mariane , eu faço parte do instituto desde 2022 , desde então eu me sinto outra pessoa , o instituto nos oferece várias atividades como artesanato, arteterapia etc",
     videoUrl: "https://www.youtube.com/@immuvideos"
-  }
+  },
+  {
+    id: 4,
+    image: marciane,
+    name: "Marciane",
+    age: "45 anos",
+    text: `
+      Peço para que vocês agradeçam, porque estamos vivas e respirando. Podemos
+      sentir esse ar maravilhoso que Deus proporcionou para nós, eu há seis anos atrás não
+      estaria vendo esse ar [...] nem respirando, certamente estaria no hospital vegetando,
+      correndo risco de vida. Então eu já levanto agradecendo à Deus.
+    `,
+    videoUrl: "https://www.youtube.com/shorts/Cm2Q63Hef-M"
+  },
+  {
+    id: 5,
+    image: edite,
+    name: "Edite",
+    age: "45 anos",
+    text: `
+      Meu nome é Edite, eu sou colaboradora do IMMU no qual eu conheci através de uma
+      amiga [...] Eu tenho a oportunidade de participar. O Instituto tem nos proporcionado, não
+      somente o apoio emocional através da arteterapia, mas tanto para mim quanto para outras
+      mulheres tem sido uma válvula de escape e um fortalecimento psicológico.
+    `,
+    videoUrl: "https://www.youtube.com/watch?v=vWXsfVlbQVg&t=2s"
+  },
 ];
 
 import foto1 from "../../assets/about-section/foto1.png";
