@@ -12,7 +12,7 @@ const formatWhatsappUrl = (number: string) => {
 };
 
 const FloatingWhatsappButton: React.FC<FloatingWhatsappButtonProps> = ({
-  whatsappNumber = "+55 11 9 91234568"
+  whatsappNumber = "+5527992575998"
 }) => (
   <a
     href={formatWhatsappUrl(whatsappNumber)}

@@ -43,6 +43,7 @@ const Carousel = ({ slides, autoPlay = true, interval = 5000 }: CarouselProps) =
     }, interval);
 
     return () => clearInterval(slideInterval);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [currentIndex, autoPlay, interval]);
 
   return (

@@ -26,7 +26,7 @@ CNPJ: 46.865.616/0001-26
 `.trim();
 
   const encodedMessage = encodeURIComponent(message);
-  const whatsappUrl = `https://wa.me/+5511991234568?text=${encodedMessage}`;
+  const whatsappUrl = `https://wa.me/+5527992575998?text=${encodedMessage}`;
 
   return (
     <Dialog open={open} onOpenChange={onClose}>

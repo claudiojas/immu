@@ -15,7 +15,7 @@ type AboutSectionProps = {
 
 const AboutSection = ({ title, text1, text2, features }: AboutSectionProps) => {
   return (
-    <section className="py-16 px-4">
+    <section className="py-16 px-4" id='aboutus'>
       <div className="container mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
           <div>

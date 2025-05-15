@@ -1,5 +1,5 @@
+'use client'
 import {
-  facebook,
   gmail,
   instagram,
   logoIMMUHeader,
@@ -7,8 +7,14 @@ import {
 } from "@immu/assets";
 import Image from "next/image";
 import Link from "next/link";
+import { useState } from "react";
+import DonationModal from "../DonationModal";
 
 export default function Footer() {
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    const handleButtonDonation = () => [
+      setIsModalOpen(true),
+    ];
   return (
     <footer className="bg-[#2D2D2A] text-zinc-200">
       <div className="max-w-7xl mx-auto px-6 py-12 grid grid-cols-1 md:grid-cols-3 gap-10">
@@ -20,15 +26,7 @@ export default function Footer() {
           </p>
           <div className="flex gap-4 mt-4">
             <Link
-              href="https://www.google.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:opacity-60 transition"
-            >
-              <Image src={facebook} alt="Facebook" width={22} />
-            </Link>
-            <Link
-              href="https://www.google.com"
+              href="https://www.instagram.com/institutomanancial_maos_unidas/"
               target="_blank"
               rel="noopener noreferrer"
               className="hover:opacity-60 transition"
@@ -36,15 +34,15 @@ export default function Footer() {
               <Image src={instagram} alt="Instagram" width={22} />
             </Link>
             <Link
-              href="https://www.google.com"
+              href="mailto:immuloja.digital@gmail.com"
               target="_blank"
-              rel="noopener noreferrer"
               className="hover:opacity-60 transition"
             >
               <Image src={gmail} alt="Gmail" width={22} />
             </Link>
+
             <Link
-              href="https://www.google.com"
+              href="https://wa.me/+5527992575998" // Substitua com o número real, sem espaços ou traços
               target="_blank"
               rel="noopener noreferrer"
               className="hover:opacity-60 transition"
@@ -62,48 +60,35 @@ export default function Footer() {
           <ul className="space-y-2 text-sm">
             <li>
               <a
-                href="https://www.google.com"
+                href="/aboutUs"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover:text-pink-300 transition"
+                className="hover:text-manancial-pink transition"
               >
                 Conheça o IMMU
               </a>
             </li>
             <li>
               <a
-                href="https://www.google.com"
-                target="_blank"
+                href="#aboutus"
                 rel="noopener noreferrer"
-                className="hover:text-pink-300 transition"
+                className="hover:text-manancial-pink transition"
               >
                 Venha fazer parte dessa iniciativa
               </a>
             </li>
             <li>
               <a
-                href="#"
-                className="hover:text-pink-300 transition"
-              >
-                Impacto social
-              </a>
-            </li>
-            <li>
-              <a
-                href="#"
-                className="hover:text-pink-300 transition"
+                href="#testimunial"
+                className="hover:text-manancial-pink transition"
               >
                 Depoimentos
               </a>
             </li>
-            <li>
-              <a
-                href="#"
-                className="hover:text-pink-300 transition"
-              >
-                Como ajudar
-              </a>
-            </li>
+            <p className="hover:text-manancial-pink transition cursor-pointer" onClick={handleButtonDonation}>
+              Como ajudar
+            </p>
+            <DonationModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
           </ul>
         </div>
 
@@ -114,13 +99,13 @@ export default function Footer() {
           </h3>
           <ul className="text-sm space-y-3 text-zinc-400">
             <li>
-              <span className="block">Email: contato@immu.org.br</span>
+              <span className="block">Email: institutomanancial_maos_unidas@gmail.com</span>
             </li>
             <li>
-              <span className="block">WhatsApp: (11) 91234-5678</span>
+              <span className="block">WhatsApp: +55 (27) 99257-5998</span>
             </li>
             <li>
-              <span className="block">Endereço: São Paulo - SP</span>
+              <span className="block">Endereço: Rua São Lucas, nº 16, Bairro das Laranjeiras Jacraípe, Serra - ES, CEP 29173-518</span>
             </li>
             <li>
               <span className="block">CNPJ: 46.865.616/0001-26</span>

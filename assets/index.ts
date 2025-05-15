@@ -1,7 +1,6 @@
 import logoIMMU from "@immu/assets/logo.png";
 import logoIMMUHeader from '@immu/assets/logo-immu-footer.png';
 import instagram from "@immu/assets/instagram.png";
-import facebook from "@immu/assets/facebook.png";
 import gmail from "@immu/assets/gmail.png";
 import whatsapp from "@immu/assets/whatsapp.png";
 import mosaico from "@immu/assets/mosaico.png";
@@ -19,7 +18,6 @@ export {
   logoIMMU,
   logoIMMUHeader,
   instagram,
-  facebook,
   gmail,
   whatsapp,
   banner1,
