@@ -1,7 +1,6 @@
 import { Button } from '@immu/@/components/ui/button';
 import React, { useEffect, useState } from 'react';
-import QRCode from 'react-qr-code';
-import { QrCodePix } from 'qrcode-pix';
+import PixQRCode from '../PixQRCode';
 
 interface DonationModalProps {
   isOpen: boolean;
@@ -10,23 +9,7 @@ interface DonationModalProps {
 
 const DonationModal: React.FC<DonationModalProps> = ({ isOpen, onClose }) => {
   const [hasConfirmed, setHasConfirmed] = useState(false);
-  const [payload, setPayload] = useState('');
 
-  useEffect(() => {
-    const generate = async () => {
-      const qrPix = QrCodePix({
-        version: '01',
-        key: '46865616000126',
-        name: 'Instituto Manancial Maos Unidas',
-        city: 'Serra',
-      });
-
-      const code = await qrPix.payload();
-      setPayload(code);
-    };
-
-    generate();
-  }, []);
 
   useEffect(() => {
     let timer: NodeJS.Timeout;
@@ -61,13 +44,12 @@ const DonationModal: React.FC<DonationModalProps> = ({ isOpen, onClose }) => {
               Escaneie o QR Code ou use os dados abaixo para fazer sua doação.
             </p>
 
-            <div className="flex justify-center mb-4">
-              {payload ? (
-                <QRCode value={payload} size={256} />
-              ) : (
-                <p>Gerando QR Code...</p>
-              )}
-            </div>
+            <PixQRCode
+              pixKey="46865616000126"
+              name="Instituto Manancial Maos Unidas"
+              city="Serra"
+              className="mb-4"
+            />
 
             <div className="bg-pink-50 p-3 rounded-lg mb-4">
               <p className="text-center font-semibold text-pink-700">Chave Pix:</p>
