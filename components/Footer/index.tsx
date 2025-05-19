@@ -115,7 +115,7 @@ export default function Footer() {
       </div>
 
       {/* Rodapé inferior */}
-      <div className="border-t border-zinc-600 mt-10 pt-4 text-center text-zinc-400 text-sm">
+      <div className="border-t border-zinc-600 mt-10 py-4 text-center text-zinc-400 text-sm">
         <p>© {new Date().getFullYear()} Instituto Manancial Mãos Unidas — Todos os direitos reservados.</p>
       </div>
     </footer>
