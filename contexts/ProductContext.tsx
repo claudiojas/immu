@@ -14,7 +14,7 @@ export const ProductProvider = ({ children }: { children: ReactNode }) => {
     const fetchProducts = async () => {
       try {
         const response = await fetch("/api/products?include=skus,images,categories");
-        if (!response.ok) throw new Error("Falha ao carregar os produtos");
+        if (!response.ok) throw new Error("Ops! Algo deu errado. Recarregue a página!");
 
         const data: YampiProduct[] = await response.json();
 

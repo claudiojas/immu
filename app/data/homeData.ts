@@ -1,7 +1,8 @@
+import { calculateAge } from "../utils/calculateAge";
+import { banner1, banner2, banner3, edite, foto1, foto2, foto3, luciene, marciane, mariane, mLurdes } from '@immu/assets';
 
-import banner1 from "../../assets/home-banner/banner-1.png";
-import banner2 from "../../assets/home-banner/banner-2.svg";
-import banner3 from "../../assets/home-banner/banner-3.svg";
+
+
 
 // Carousel slides data
 export const carouselSlides = [
@@ -24,13 +25,6 @@ export const carouselSlides = [
     subtitle: "Conheça os produtos artesanais criados pelas mulheres do nosso instituto e ajude a transformar vidas."
   }
 ];
-
-import luciene from '../../assets/testimonial/Luciene Foto.jpg'
-import mLurdes from '../../assets/testimonial/Maria de Lurdes Foto.jpg'
-import mariane from '../../assets/testimonial/Mariane Foto.jpg'
-import marciane from '../../assets/testimonial/Marciane.jpg'
-import edite from '../../assets/testimonial/edite.png'
-
 
 
 // Testimonials data
@@ -84,10 +78,6 @@ export const testimonials = [
   },
 ];
 
-import foto1 from "../../assets/about-section/foto1.png";
-import foto2 from "../../assets/about-section/foto2.png";
-import foto3 from "../../assets/about-section/foto3.png";
-import { calculateAge } from "../utils/calculateAge";
 
 // Project description
 export const projectDescription = {
