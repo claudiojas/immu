@@ -32,92 +32,6 @@ import marciane from '../../assets/testimonial/Marciane.jpg'
 import edite from '../../assets/testimonial/edite.png'
 
 
-import productExemple from '../../assets/products/product__exemple.svg'
-
-// Products data
-export const products = [
-  {
-    id: 1,
-    image: productExemple,
-    title: "Perfume de Ambiente Vanilla",
-    description: "1 litro",
-    price: 69.90,
-    category: "Casa"
-  },
-  {
-    id: 2,
-    image: productExemple,
-    title: "Perfume de Ambiente Lavanda",
-    description: "1 litro",
-    price: 69.90,
-    category: "Casa"
-  },
-  {
-    id: 3,
-    image: productExemple,
-    title: "Perfume de Ambiente Morango",
-    description: "1 litro",
-    price: 69.90,
-    category: "Beleza"
-  },
-  {
-    id: 4,
-    image: productExemple,
-    title: "Perfume de Ambiente Flor de Laranjeira",
-    description: "1 litro",
-    price: 69.90,
-    category: "Casa"
-  },
-  {
-    id: 5,
-    image: productExemple,
-    title: "Creme Hidratante de Mãos",
-    description: "300g",
-    price: 39.90,
-    category: "Beleza"
-  },
-  {
-    id: 6,
-    image: productExemple,
-    title: "Máscara Capilar de Aloe Vera",
-    description: "250g",
-    price: 49.90,
-    category: "Beleza"
-  },
-  {
-    id: 7,
-    image: productExemple,
-    title: "Detergente Antibacteriano",
-    description: "500ml",
-    price: 15.90,
-    category: "Casa"
-  },
-  {
-    id: 8,
-    image: productExemple,
-    title: "Desinfetante Lavanda",
-    description: "1 litro",
-    price: 18.90,
-    category: "Casa"
-  },
-  {
-    id: 9,
-    image: productExemple,
-    title: "Camiseta Feminina de Algodão",
-    description: "Tamanho M",
-    price: 49.90,
-    category: "Roupas"
-  },
-  {
-    id: 10,
-    image: productExemple,
-    title: "Camiseta Masculina de Algodão",
-    description: "Tamanho G",
-    price: 49.90,
-    category: "Roupas"
-  }
-];
-
 
 // Testimonials data
 export const testimonials = [
@@ -125,7 +39,7 @@ export const testimonials = [
     id: 1,
     image: luciene,
     name: "Luciene",
-    age: "45 anos",
+    age: `${calculateAge(1971)} anos`,
     text: "Tenho mais concentração, ali tem bate papo, tem pintura, aprendemos a pintar pano de prato e a fazer pulseiras. É muito bom estar no instituto.",
     videoUrl: "https://www.youtube.com/shorts/VMlILpDBdl4"
   },
@@ -133,15 +47,15 @@ export const testimonials = [
     id: 2,
     image: mLurdes,
     name: "Maria de Lurdes",
-    age: "45 anos",
-    text: " A gente entra uma pessoa e saí outra, totalmente renovada. Ali é lugar da gente trabalhar e aprender a fazer as coisas para se manter.",
+    age: `${calculateAge(1959)} anos`,
+    text: " A gente entra uma pessoa e saí outra, totalmente1971 renovada. Ali é lugar da gente trabalhar e aprender a fazer as coisas para se manter.",
     videoUrl: "https://www.youtube.com/shorts/EBsWL3H8q9g"
   },
   {
     id: 3,
     image: mariane,
     name: "Mariane",
-    age: "45 anos",
+    age: `${calculateAge(2001)} anos`,
     text: "Meu nome é Mariane , eu faço parte do instituto desde 2022 , desde então eu me sinto outra pessoa , o instituto nos oferece várias atividades como artesanato, arteterapia etc",
     videoUrl: "https://www.youtube.com/@immuvideos"
   },
@@ -149,7 +63,7 @@ export const testimonials = [
     id: 4,
     image: marciane,
     name: "Marciane",
-    age: "45 anos",
+    age: `${calculateAge(1971)} anos`,
     text: `
       Peço para que vocês agradeçam, porque estamos vivas e respirando. Podemos
       sentir esse ar maravilhoso que Deus proporcionou para nós, eu há seis anos atrás não
@@ -162,7 +76,7 @@ export const testimonials = [
     id: 5,
     image: edite,
     name: "Edite",
-    age: "45 anos",
+    age: `${calculateAge(1971)} anos`,
     text: `
       Meu nome é Edite, eu sou colaboradora do IMMU no qual eu conheci através de uma
       amiga [...] Eu tenho a oportunidade de participar. O Instituto tem nos proporcionado, não
@@ -176,6 +90,7 @@ export const testimonials = [
 import foto1 from "../../assets/about-section/foto1.png";
 import foto2 from "../../assets/about-section/foto2.png";
 import foto3 from "../../assets/about-section/foto3.png";
+import { calculateAge } from "../utils/calculateAge";
 
 // Project description
 export const projectDescription = {
