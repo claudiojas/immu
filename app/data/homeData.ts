@@ -57,18 +57,16 @@ export const testimonials = [
     name: "Mariane",
     age: `${calculateAge(2001)} anos`,
     text: "Meu nome é Mariane , eu faço parte do instituto desde 2022 , desde então eu me sinto outra pessoa , o instituto nos oferece várias atividades como artesanato, arteterapia etc",
-    videoUrl: "https://www.youtube.com/@immuvideos"
+    videoUrl: "#"
   },
   {
     id: 4,
     image: marciane,
     name: "Marciane",
-    age: `${calculateAge(1971)} anos`,
+    age: `${calculateAge(1982)} anos`,
     text: `
       Peço para que vocês agradeçam, porque estamos vivas e respirando. Podemos
-      sentir esse ar maravilhoso que Deus proporcionou para nós, eu há seis anos atrás não
-      estaria vendo esse ar [...] nem respirando, certamente estaria no hospital vegetando,
-      correndo risco de vida. Então eu já levanto agradecendo à Deus.
+      sentir esse ar maravilhoso que Deus proporcionou para nós  [...]. Então eu já levanto agradecendo à Deus.
     `,
     videoUrl: "https://www.youtube.com/shorts/Cm2Q63Hef-M"
   },
@@ -76,10 +74,9 @@ export const testimonials = [
     id: 5,
     image: edite,
     name: "Edite",
-    age: `${calculateAge(1971)} anos`,
+    age: `${calculateAge(1980)} anos`,
     text: `
-      Meu nome é Edite, eu sou colaboradora do IMMU no qual eu conheci através de uma
-      amiga [...] Eu tenho a oportunidade de participar. O Instituto tem nos proporcionado, não
+      O Instituto tem nos proporcionado, não
       somente o apoio emocional através da arteterapia, mas tanto para mim quanto para outras
       mulheres tem sido uma válvula de escape e um fortalecimento psicológico.
     `,

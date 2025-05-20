@@ -4,6 +4,7 @@ import Image, { StaticImageData } from 'next/image';
 import React, { useState } from 'react';
 import { FaQuoteLeft } from 'react-icons/fa';
 import { VideoModal } from './VideoModal';
+import { VideoIcon, VideoOff } from "lucide-react";
 
 type TestimonialCardProps = {
   image: string | StaticImageData;
@@ -44,15 +45,26 @@ const TestimonialCard = ({ image, name, age, text, videoUrl }: TestimonialCardPr
       </div>
 
       {/* Link para vídeo */}
-      {videoUrl && (
+      {videoUrl !== '#' ? (
         <>
           <button
             onClick={() => setIsModalOpen(true)}
-            className="mt-5 inline-block bg-manancial-purple text-white text-sm font-medium px-5 py-2 rounded-full shadow-sm hover:bg-manancial-pink transition-colors"
+            className="flex items-center gap-3 mt-5 bg-manancial-purple text-white text-sm font-medium px-5 py-2 rounded-full shadow-sm hover:bg-manancial-pink transition-colors"
           >
-            Assista o vídeo de {name.split(' ')[0]}
+             <VideoIcon className="w-4 h-4 text-white" /> Assista o vídeo de {name.split(' ')[0]}
           </button>
         </>
+      )
+    :
+      (
+        <>
+            <button
+              onClick={() => setIsModalOpen(true)}
+              className="flex items-center gap-3 mt-5 bg-manancial-purple text-white text-sm font-medium px-5 py-2 rounded-full shadow-sm hover:bg-manancial-pink transition-colors"
+            >
+              <VideoOff className="w-4 h-4 text-white" /> Vídeo de {name.split(' ')[0]} em breve!
+            </button>
+          </>
       )}
 
     </div>
