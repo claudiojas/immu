@@ -1,7 +1,8 @@
-
-import React from 'react';
+"use client"
+import React, { useState } from 'react';
 import Image, { StaticImageData } from 'next/image';
 import { Button } from '@immu/@/components/ui/button';
+import DonationModal from '../DonationModal';
 
 type AboutSectionProps = {
   title: string;
@@ -14,6 +15,8 @@ type AboutSectionProps = {
 };
 
 const AboutSection = ({ title, text1, text2, features }: AboutSectionProps) => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const handleButtonDonation = () => {setIsModalOpen(true)}
   return (
     <section className="py-16 px-4" id='aboutus'>
       <div className="container mx-auto">
@@ -22,9 +25,10 @@ const AboutSection = ({ title, text1, text2, features }: AboutSectionProps) => {
             <h2 className="text-4xl font-bold text-gray-800 mb-6">{title}</h2>
             <p className="text-gray-600 mb-4 text-xl">{text1}</p>
             <p className="text-gray-600 mb-6 text-xl">{text2}</p>
-            <Button className="bg-manancial-purple hover:bg-manancial-pink text-white">
+            <Button className="bg-manancial-purple hover:bg-manancial-pink text-white" onClick={handleButtonDonation}>
               Quero Doar
             </Button>
+            <DonationModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
           </div>
           <div className="grid grid-cols-2 gap-4">
             <div className="col-span-2">

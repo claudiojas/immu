@@ -12,9 +12,8 @@ import DonationModal from "../DonationModal";
 
 export default function Footer() {
     const [isModalOpen, setIsModalOpen] = useState(false);
-    const handleButtonDonation = () => [
-      setIsModalOpen(true),
-    ];
+    const handleButtonDonation = () => {setIsModalOpen(true)}
+
   return (
     <footer className="bg-[#2D2D2A] text-zinc-200">
       <div className="max-w-7xl mx-auto px-6 py-12 grid grid-cols-1 md:grid-cols-3 gap-10">
@@ -24,7 +23,7 @@ export default function Footer() {
           <p className="text-sm text-zinc-400 leading-relaxed">
             Somos uma iniciativa que apoia mulheres em situação de vulnerabilidade, oferecendo apoio, acolhimento e oportunidades para uma vida melhor.
           </p>
-          <div className="flex gap-4 mt-4">
+          <div className="flex items-center gap-4 mt-4">
             <Link
               href="https://www.instagram.com/institutomanancial_maos_unidas/"
               target="_blank"
