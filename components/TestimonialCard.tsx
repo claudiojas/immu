@@ -1,7 +1,9 @@
+'use client';
+
 import Image, { StaticImageData } from 'next/image';
-import Link from 'next/link';
-import React from 'react';
+import React, { useState } from 'react';
 import { FaQuoteLeft } from 'react-icons/fa';
+import { VideoModal } from './VideoModal';
 
 type TestimonialCardProps = {
   image: string | StaticImageData;
@@ -12,8 +14,12 @@ type TestimonialCardProps = {
 };
 
 const TestimonialCard = ({ image, name, age, text, videoUrl }: TestimonialCardProps) => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  
   return (
-    <div className="bg-[#F0F0F0] h-[32rem] rounded-2xl shadow-lg p-6 flex flex-col items-center justify-between text-center max-w-sm md:transition-transform md:hover:scale-[1.02] md:duration-300 border border-manancial-purple">
+    <><div className={`bg-[#F0F0F0] h-[32rem] rounded-2xl shadow-lg p-6 flex flex-col 
+      items-center justify-between text-center max-w-sm md:transition-transform 
+      md:hover:scale-[1.02] md:duration-300 border border-manancial-purple`}>
       {/* Foto Redonda */}
       <div className="w-28 h-28 rounded-full overflow-hidden mb-4 border-2 border-manancial-pink shadow-inner">
         <Image
@@ -21,8 +27,7 @@ const TestimonialCard = ({ image, name, age, text, videoUrl }: TestimonialCardPr
           alt={name}
           className="w-full h-full object-cover"
           width={300}
-          height={300}
-        />
+          height={300} />
       </div>
 
       {/* Nome e idade */}
@@ -40,16 +45,23 @@ const TestimonialCard = ({ image, name, age, text, videoUrl }: TestimonialCardPr
 
       {/* Link para vídeo */}
       {videoUrl && (
-        <Link
-          href={videoUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="mt-5 inline-block bg-manancial-purple text-white text-sm font-medium px-5 py-2 rounded-full shadow-sm hover:bg-manancial-pink transition-colors"
-        >
-          Assista o vídeo de {name.split(' ')[0]}
-        </Link>
+        <>
+          <button
+            onClick={() => setIsModalOpen(true)}
+            className="mt-5 inline-block bg-manancial-purple text-white text-sm font-medium px-5 py-2 rounded-full shadow-sm hover:bg-manancial-pink transition-colors"
+          >
+            Assista o vídeo de {name.split(' ')[0]}
+          </button>
+        </>
       )}
+
     </div>
+    <VideoModal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        videoUrl={videoUrl} 
+    />
+    </>
   );
 };
 
